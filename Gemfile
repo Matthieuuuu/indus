@@ -33,11 +33,11 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'bootstrap_form'
 
 gem 'simple_form'
-gem 'nokogiri'
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "meta_request"
 end
 
 # Use ActiveModel has_secure_password
