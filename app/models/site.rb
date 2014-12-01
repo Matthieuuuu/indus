@@ -5,4 +5,8 @@ class Site < ActiveRecord::Base
   has_many :users, through: :stays
 
   validates :user, presence: true
+  validates :title, presence: true
+  validates :zipcode, presence: true
+  validates :daily_price, presence: true
+
 end
