@@ -19,8 +19,9 @@ Rails.application.routes.draw do
 #   #about                        -->  'about'
 
 # sites
-#   #new [+create, TYPE: POST]    --> 'site/new'
-#   #show [+delete, TYPE: DELETE] --> 'site/:id'
-#   #edit [+update, TYPE: POST]   --> 'site/:id/edit'
-#   #search [TYPE: GET]           --> 'search?params'
+#   #new                          --> 'site/new'
+#   #create                       --> 'site/create' (post)
+#   #show                         --> 'site/:id'
+#   #edit & #update               --> 'site/:id/edit' (post)
+#   #search                       --> 'search?params'
 end
