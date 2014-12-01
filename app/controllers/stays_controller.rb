@@ -1,6 +1,4 @@
 class StaysController < ApplicationController
-  before_action :authenticate_user!
-
   def create
     Stay.create(user: current_user, site: Site.find(params[:id]), begin_date: params[:begin_date], end_date: params[:end_date]) # see params!
     redirect_to dashboard_path
