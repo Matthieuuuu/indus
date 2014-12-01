@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 #   #landing                      --> '/'
 #   #about                        -->  'about'
 
+get '/', to: 'pages#landing', as: :landing
+get '/about', to: 'pages#about', as: :about
+
+
 # sites
 #   #new [+create, TYPE: POST]    --> 'site/new'
 #   #show [+delete, TYPE: DELETE] --> 'site/:id'
