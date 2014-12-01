@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 #   CONTROLLERS
 
+# sites
+resources :sites, only: [:new, :create, :show, :update, :edit]
+get 'search', to: 'sites#search'
+
+
+
 # me
 #   DEVISE#signup                 --> 'signup'
 #   DEVISE#signin                 --> 'signin'
@@ -18,7 +24,9 @@ Rails.application.routes.draw do
 #   #landing                      --> '/'
 #   #about                        -->  'about'
 
-# sites
+
+
+
 #   #new                          --> 'site/new'
 #   #create                       --> 'site/create' (post)
 #   #show                         --> 'site/:id'
