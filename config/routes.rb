@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 #   CONTROLLERS
-  root to: 'pages#landing'
+#  root to: 'pages#landing'
 # me
 #   DEVISE#signup                 --> 'signup'
 #   DEVISE#signin                 --> 'signin'
