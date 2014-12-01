@@ -10,9 +10,8 @@ Rails.application.routes.draw do
 #   #owner_index                  --> 'me/requests'
 
 # stays
-#   #create [POST]                --> 'stay/create'
-#   #update_status  TYPE: POST    --> 'stay/update'
-#     [accepted, declined, cancel]
+post 'stay/create', to 'stay#create', as: :create_stay
+post 'stay/update_status', to 'stay#update_status', as: :update_stay_status
 
 # pages
 #   #landing                      --> '/'
