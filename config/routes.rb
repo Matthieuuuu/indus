@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 #   #owner_index                  --> 'me/requests'
 
 # stays
-post 'stay/create', to 'stay#create', as: :create_stay
-post 'stay/cancel_booking', to 'stay#cancel_booking', as: :cancel_stay
-post 'stay/accept_booking', to 'stay#accept_booking', as: :accept_stay
-post 'stay/decline_booking', to 'stay#decline_booking', as: :decline_stay
+post 'stays/create', to: 'stays#create', as: :create_stay
+post 'stays/cancel_booking', to: 'stays#cancel_booking', as: :cancel_stay
+post 'stays/accept_booking', to: 'stays#accept_booking', as: :accept_stay
+post 'stays/decline_booking', to: 'stays#decline_booking', as: :decline_stay
 
 # pages
 #   #landing                      --> '/'
