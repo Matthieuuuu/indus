@@ -24,9 +24,7 @@ get 'search', to: 'sites#search'
 #   #landing                      --> '/'
 #   #about                        -->  'about'
 
-
-
-
+# sites
 #   #new                          --> 'site/new'
 #   #create                       --> 'site/create' (post)
 #   #show                         --> 'site/:id'
