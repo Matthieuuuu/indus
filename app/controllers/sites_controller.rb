@@ -12,8 +12,8 @@ class SitesController < ApplicationController
   end
 
   def create
-    Site.create(site_params)
-    redirect_to root
+    @site = Site.create(site_params)
+    redirect_to site_path(@site)
     # we probably need to add a redirect to the /me something
   end
 
