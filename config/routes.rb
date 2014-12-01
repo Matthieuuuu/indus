@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
 # stays
 post 'stay/create', to 'stay#create', as: :create_stay
-post 'stay/update_status', to 'stay#update_status', as: :update_stay_status
+post 'stay/cancel_booking', to 'stay#cancel_booking', as: :cancel_stay
+post 'stay/accept_booking', to 'stay#accept_booking', as: :accept_stay
+post 'stay/decline_booking', to 'stay#decline_booking', as: :decline_stay
 
 # pages
 #   #landing                      --> '/'
