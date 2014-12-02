@@ -11,14 +11,14 @@ class StaysController < ApplicationController
 
   def update
     stay = Stay.find(stay_params[:stay_id])
-    stay.update(status: stay_params[:status])
+    stay.update(status: stay_params[:status], response_at: stay_params[:response_at])
     redirect_to stays_path
   end
 
   private
 
   def stay_params
-    params.require(:stay).permit(:site_id, :begin_date, :end_date, :status, :stay_id)
+    params.require(:stay).permit(:site_id, :begin_date, :end_date, :status, :stay_id, :response_at)
   end
 
 
