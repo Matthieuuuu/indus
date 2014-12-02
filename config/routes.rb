@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
 #   CONTROLLERS
 
 # sites
 resources :sites, only: [:new, :create, :show, :update, :edit]
 get 'search', to: 'sites#search'
 
+
+
+#  root to: 'pages#landing'
 
 
 # me
