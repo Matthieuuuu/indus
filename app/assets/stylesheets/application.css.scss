@@ -1,3 +1,11 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// Your SCSS files
+@import "navbar";
+@import "footer";
+
+body{
+  padding-top: 50px;
+}

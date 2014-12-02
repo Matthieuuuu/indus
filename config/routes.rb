@@ -28,6 +28,10 @@ get 'stays', to: 'stays#index'
 #   #landing                      --> '/'
 #   #about                        -->  'about'
 
+get '/', to: 'pages#landing', as: :landing
+get '/about', to: 'pages#about', as: :about
+
+
 # sites
 #   #new                          --> 'site/new'
 #   #create                       --> 'site/create' (post)
