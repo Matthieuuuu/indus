@@ -37,6 +37,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
+    bootstrap-slider-rails (1.9.0)
+      railties (>= 3.2, < 5.0)
     bootstrap_form (2.2.0)
     builder (3.2.2)
     callsite (0.0.11)
@@ -152,6 +154,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.1)
+  bootstrap-slider-rails
   bootstrap_form
   coffee-rails (~> 4.0.0)
   devise
