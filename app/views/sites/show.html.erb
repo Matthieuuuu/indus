@@ -2,11 +2,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= simple_form_for @stay do |f| %>
-        <%= f.hidden_field :site_id, value: @site.id %>
-        <%= f.input :begin_date %>
-        <%= f.input :end_date %>
-        <%= f.button :submit, 'Request!'  %>
+      <h2>Your life will be changed forever - BOOK NOW!</h2>
+      <%= simple_form_for(@stay, html: { class: 'form-inline' }) do |f| %>
+      <%= f.hidden_field :site_id, value: @site.id %>
+      <%= f.input :begin_date, label: 'Arrrival' %>
+      <%= f.input :end_date, label: 'Departure' %>
+      <%= f.submit 'Request your cancer', class: 'btn btn-danger' %>
       <% end %>
     </div>
   </div>

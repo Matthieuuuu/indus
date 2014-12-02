@@ -6,14 +6,23 @@
       <% current_user.stays.each do |stay| %>
 
         Site: <strong><%= stay.site.title %><br></strong>
+        Stay id: <%= stay.id %><br>
         From <%= stay.begin_date %> to <%= stay.end_date %><br>
         Status: <%= stay.status %> (updated on <%= stay.response_at %>)<br><br>
 
-        <%= simple_form_for stay do |f| %>
-          <%= f.hidden_field :status, value: "cancelled" %>
-          <%= f.hidden_field :stay_id, value: stay.id %>
-          <%= f.hidden_field :response_at, value: Time.now %>
-          <%= f.button :submit, 'Cancel booking'  %>
+        <% if stay.status != "cancelled" %>
+
+          <%= simple_form_for stay do |f| %>
+            <%= f.hidden_field :status, value: "cancelled" %>
+            <%= f.hidden_field :stay_id, value: stay.id %>
+            <%= f.hidden_field :response_at, value: Time.now %>
+            <%= f.submit 'Cancel booking', class: 'btn btn-danger' %>
+          <% end %>
+
+        <% else %>
+
+        <i>You cancelled this booking on <%= stay.response_at %></i>
+
         <% end %>
 
         <br><br><br>
@@ -23,35 +32,48 @@
       <h1>Manage your requests</h1>
 
       <% current_user.sites.each do |site| %>
-        <% site.stays.each do |stay| %>
+        <% if site.stays.first %><h3>Requests for <strong><%= site.title %></strong></h3><% end %>
 
-        From <%= stay.begin_date %> to <%= stay.end_date %><br>
-        Status: <%= stay.status %> (updated on:) <%= stay.response_at %>
+          <% site.stays.each do |stay| %>
 
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-3">
+            From <%= stay.begin_date %> to <%= stay.end_date %><br><br>
+            <% if ["accepted", "declined"].include? stay.status %>
+              <i>You <%= stay.status %> this request on <%= stay.response_at.to_date %>.</i><br>
+            <% end %>
 
-              <%= simple_form_for stay do |f| %>
-                <%= f.hidden_field :status, value: "accepted" %>
-                <%= f.hidden_field :stay_id, value: stay.id %>
-                <%= f.hidden_field :response_at, value: Time.now %>
-                <%= f.button :submit, 'Accept booking'  %>
-              <% end %>
-            </div>
+            <% if stay.status != "cancelled" %>
 
-            <div class="col-xs-3">
-                <%= simple_form_for stay do |f| %>
-                  <%= f.hidden_field :status, value: "declined" %>
-                  <%= f.hidden_field :stay_id, value: stay.id %>
-                  <%= f.hidden_field :response_at, value: Time.now %>
-                  <%= f.button :submit, 'Decline booking'  %>
-                <% end %>
-            </div>
-          </div>
-        </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-3">
 
-        <% end %>
+                    <%= simple_form_for stay do |f| %>
+                      <%= f.hidden_field :status, value: "accepted" %>
+                      <%= f.hidden_field :stay_id, value: stay.id %>
+                      <%= f.hidden_field :response_at, value: Time.now %>
+                      <%= f.submit 'Accept booking', class: 'btn btn-primary'  %>
+                    <% end %>
+                  </div>
+
+                  <div class="col-xs-6">
+                      <%= simple_form_for stay do |f| %>
+                        <%= f.hidden_field :status, value: "declined" %>
+                        <%= f.hidden_field :stay_id, value: stay.id %>
+                        <%= f.hidden_field :response_at, value: Time.now %>
+                        <%= f.submit 'Decline booking', class: 'btn btn-danger'  %>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+
+            <% else %>
+
+              <i>This booking was cancelled by the traveller on <%= stay.response_at.to_date %></i><br>
+
+            <% end %>
+            <br><br>
+          <% end %>
+
       <% end %>
     </div>
   </div>

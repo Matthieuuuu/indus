@@ -11,7 +11,7 @@ class StaysController < ApplicationController
 
   def update
     stay = Stay.find(stay_params[:stay_id])
-    stay.update(status: stay_params[:status], response_at: stay_params[:response_at])
+    stay.update(status: stay_params[:status], response_at: stay_params[:response_at]) unless stay.status == "cancelled"
     redirect_to stays_path
   end
 
