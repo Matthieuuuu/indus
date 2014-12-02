@@ -21,8 +21,7 @@ resources :users, only: [:show,:edit, :update]
 
 # stays
 post 'stays/create', to: 'stays#create', as: :create_stay
-post 'stays/update', to: 'stays#update'
-get 'stays', to: 'stays#index'
+resources :stays, only: [:index, :create, :update]
 
 # pages
 #   #landing                      --> '/'
