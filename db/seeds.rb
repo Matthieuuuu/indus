@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = ["nuke","abandoned factory","running factory","carrier"]
+@categories = ["nuke","abandoned factory","running factory","carrier"]
 
 
 Site.create(
@@ -18,7 +18,8 @@ Site.create(
   lat: 51.389722,
   lng: 30.099167,
   city: "Tchernobyl",
-  url:"http://www.lovethesepics.com/2013/03/chernobyl-exclusion-zone-adrenaline-radiation-urbex-a-good-day-to-die-hard/"
+  url:"http://www.lovethesepics.com/2013/03/chernobyl-exclusion-zone-adrenaline-radiation-urbex-a-good-day-to-die-hard/",
+  picture_url: "http://1.1.1.4/bmi/www.lovethesepics.com/wp-content/uploads/2013/03/Chernobyl-Monument-and-Reactor-April-2012.jpg"
   )
 
 
@@ -31,18 +32,20 @@ Site.create(
   lat: 42.3082963,
   lng: -83.0881437,
   city: "Detroit",
-  url: "http://zfein.com/photography/detroit/harbor_terminal/"
+  url: "http://zfein.com/photography/detroit/harbor_terminal/",
+  picture_url:"http://1.1.1.1/bmi/zfein.com/photography/detroit/harbor_terminal/images/IMG_5105_A.jpg"
   )
 
 Site.create(
   title: "Packard motor plant",
-  description: "Packard made cars in Detroit until 1957, when this plant closed. The building itself was designed by famous architect Albert Kahn, and is one of the very first massive factories built out of reinforced concrete (a style that became the norm soon after). The complex (over 15 massive factory buildings) was built in 1909 and is one of the most dilapidated, decaying buildings in Detroit. Scrappers have ravaged the buildings, going so far as removing rebar and causing collapse. The Packard Plant has also become a hotspot for arsonists, debris in the building is set on fire on nearly a weekly basis."
+  description: "Packard made cars in Detroit until 1957, when this plant closed. The building itself was designed by famous architect Albert Kahn, and is one of the very first massive factories built out of reinforced concrete (a style that became the norm soon after). The complex (over 15 massive factory buildings) was built in 1909 and is one of the most dilapidated, decaying buildings in Detroit. Scrappers have ravaged the buildings, going so far as removing rebar and causing collapse. The Packard Plant has also become a hotspot for arsonists, debris in the building is set on fire on nearly a weekly basis.",
   daily_price: 60,
   category: "abandoned factory",
   available: true,
   lat: 42.379617,
   lng: -83.028928,
   city: "Detroit",
-  url:"http://zfein.com/photography/detroit/packard/index.html"
+  url:"http://zfein.com/photography/detroit/packard/index.html",
+  picture_url:"http://1.1.1.1/bmi/zfein.com/photography/detroit/packard/images/IMG_5018_A.jpg"
   )
 
