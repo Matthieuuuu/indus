@@ -9,18 +9,18 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <%= image_tag "logo.png", id: "logo" %>
+        <%= image_tag "logo.png", id: "logo" %><h1>INDUS.IO</h1>
       </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
+      <!--   <li>
           <%= link_to "/users/1/messages" do %>
             <i class="fa fa-envelope-o"></i> Messages
           <% end %>
-        </li>
+        </li> -->
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
             <%= image_tag "http://placehold.it/30x30", id: "profile-pic" %>
@@ -34,19 +34,19 @@
             </li>
             <li>
               <%= link_to "/users/1/flats" do %>
-                <i class="fa fa-home"></i> Flats
+                <i class="fa fa-home"></i> Factories
               <% end %>
             </li>
             <li>
               <%= link_to "/signout" do %>
-                <i class="fa fa-sign-out"></i> Sign Out
+                <i class="fa fa-sign-out"></i> Sign out
               <% end %>
             </li>
           </ul>
         </li>
         <li>
           <%= link_to "/flats/new", class: "btn btn-primary", id: "nav-btn" do %>
-            Publish an announce
+            Publish a site
           <% end %>
         </li>
       </ul>
