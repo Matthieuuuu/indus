@@ -21,6 +21,8 @@
             <i class="fa fa-envelope-o"></i> Messages
           <% end %>
         </li> -->
+        <% if user_signed_in? %>
+
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
             <%= image_tag "http://placehold.it/30x30", id: "profile-pic" %>
@@ -44,6 +46,15 @@
             </li>
           </ul>
         </li>
+        <% else %>
+          <li>
+           <%= link_to 'Sign up', new_user_registration_path %>
+          </li>
+          <li>
+           <%= link_to 'Sign in', new_user_session_path %>
+           </li>
+        <% end %>
+
         <li>
           <%= link_to "/flats/new", class: "btn btn-primary", id: "nav-btn" do %>
             Publish a site
