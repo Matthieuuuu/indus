@@ -8,4 +8,243 @@
 
 body{
   padding-top: 50px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
+
+
+
+.messages {
+  display:none
+}
+
+
+// IMPORT FROM PERSONNAL PROJET
+
+body{
+ font-family: 'Source Sans Pro', sans-serif;
+}
+
+.top {
+  background: url(http://i.huffpost.com/gen/1088186/thumbs/o-ABANDONED-PLACES-facebook.jpg) no-repeat center fixed;
+  -webkit-background-size: cover; /* pour Chrome et Safari */
+  -moz-background-size: cover; /* pour Firefox */
+  -o-background-size: cover; /* pour Opera */
+  background-size: cover; /* version standardisée */
+
+  }
+
+
+
+.banner {
+  padding-top: 150px;
+  padding-bottom: 50px;
+  width:80%;
+  margin:auto;
+  }
+
+
+.banner h1 {
+  font-weight: 900;
+  font-size: 65px;
+  /* background-color: rgba(0, 0, 0, 1);*/
+  color:white;
+  display: inline;
+  margin-bottom: 20px;
+  }
+
+
+
+.discounts {
+  font-weight: bold;
+}
+
+.banner p {
+  font-weight: 340;
+  font-size: 30px;
+  /*background-color: rgba(0, 0, 0, 1);*/
+  color:white;
+  display: inline;
+
+  }
+
+.soon {
+  padding-top: 80px;
+  text-align: center;
+  width:60%;
+  margin:auto;
+  }
+
+.thankyou {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  width:100%;
+  margin:auto;
+  }
+
+.cta {
+  margin-top: 0px;
+  background-color: rgba(255,255,255,.25);
+  padding: 15px;
+  padding-bottom: 20px;
+  border-radius: 8px 8px 8px 8px;
+  display: inline-block;
+  margin-bottom: 100px
+}
+
+.cta .form-group {
+  margin-right: 30px
+  }
+
+.email {
+  width:300px !important;
+}
+
+.fond {
+  text-align: center;
+  background-image :radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+}
+
+
+.fond img {
+  width:5em;
+  }
+
+.cards {
+  background: url(http://subtlepatterns.com/patterns/congruent_pentagon.png);
+  background: #fff;
+  border-top: 1px solid rgb(200,200,200);
+  border-bottom: 1px solid rgb(200,200,200);
+
+  }
+
+.card {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  text-align: center;
+  }
+
+.card h3 {
+  font-size: 30px;
+  font-weight: 300;
+  color: #565a5c;
+}
+
+.card p {
+  font-size: 17px;
+  font-weight: bold;
+  color: #565a5c;
+}
+
+.card img {
+  opacity: 0.7;
+  width: 15%;
+}
+
+
+.footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: rgb(20,20,20);
+  color:rgb(220,220,220);
+  color:#6DA4A0;
+  opacity: 0.8;
+}
+.footer a {
+  color:rgb(220,220,220);
+}
+
+.footer .name {
+  text-align: center}
+
+.footer .name a {
+  color:#FFFAF0;
+}
+
+.footer ul {
+  list-style-type: none;
+}
+
+
+.miam {
+  transition:all 3s;
+  position: relative;
+  right: 0px;
+}
+
+.miam:hover {
+  transform: rotate(77deg);
+  right: -8px;
+}
+
+
+@media(max-width:767px){
+
+.email {
+width: 100% !important;
+}
+
+
+.soon {
+  padding-top: 80px;
+  text-align: center;
+  width: 100%;
+  }
+
+
+.banner h1 {
+  font-weight: 900;
+  font-size: 35px;
+  /* background-color: rgba(0, 0, 0, 1);*/
+  display: inline;
+  margin-bottom: 20px;
+  }
+
+.banner {
+  padding-top: 150px;
+  /* width: 70%; */
+  margin: auto;
+}
+
+.email {
+  margin:auto;
+}
+
+.banner p {
+  font-weight: 330;
+  font-size: 20px;
+  /*background-color: rgba(0, 0, 0, 1);*/
+  color:rgb(222,222,222);
+  display: inline;
+
+  }
+
+.soon p {
+  font-weight: 330;
+  font-size: 20px;
+  /*background-color: rgba(0, 0, 0, 1);*/
+  color:rgb(222,222,222);
+  display: inline;
+
+  }
+  .cta {
+    margin-top: 50px;
+    margin-bottom: 50px
+    }
+
+
+.navbar-brand, .navbar-brand a {
+  font-size:20px !important;
+  color:black;
+  position:relative;
+
+}
+
+
+
+}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
+
+
