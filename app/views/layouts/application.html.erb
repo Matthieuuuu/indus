@@ -11,9 +11,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/flash' %>
-<% render 'layouts/sessions' %>
-<%= yield %>
+  <div class="container">
+    <%= render 'layouts/flash' %>
+    <% render 'layouts/sessions' %>
+      <%= yield %>
+  </div>
 
 </body>
 </html>
