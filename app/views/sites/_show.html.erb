@@ -1,0 +1,20 @@
+<h1><%=  site.title %></h1>
+  <ul>
+    <li><%=  site.description %></li>
+    <li><%=  site.daily_price %></li>
+    <li><%=  site.zip_code %></li>
+    <li><%=  site.category %></li>
+    <li><%=  site.available %></li>
+      <!-- see here for more details
+      https://developers.google.com/maps/documentation/staticmaps/
+      -->
+    <li><%=  site.street %></li>
+    <li><%=  site.city %></li>
+    <li><%=  site.zip_code %></li>
+    <li><%=    link_to "more",  site.url %></li>
+  </ul>
+    <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{site.lat},#{site.lng}&zoom=12&size=1200x400&maptype=hybrid") %>
+
+    <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{site.lat},#{site.lng}&zoom=19&size=1200x400&maptype=satellite") %>
+
+    <%= image_tag(site.picture_url) %>
