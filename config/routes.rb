@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 resources :sites, only: [:new, :create, :show, :update, :edit]
 get 'search', to: 'sites#search'
 
-
+resources :users, only: [:show,:edit]
 
 #  root to: 'pages#landing'
 

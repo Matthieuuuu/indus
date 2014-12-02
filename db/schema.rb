@@ -11,16 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141201165318) do
-=======
-ActiveRecord::Schema.define(version: 20141201164847) do
->>>>>>> origin/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
   create_table "sites", force: true do |t|
     t.float    "daily_price"
     t.string   "title"
@@ -38,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141201164847) do
   end
 
   add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
-=======
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -62,6 +57,5 @@ ActiveRecord::Schema.define(version: 20141201164847) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
->>>>>>> origin/master
 
 end
