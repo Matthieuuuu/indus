@@ -5,6 +5,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find(params[:id])
+    @stay = Stay.new(site: @site, user_id: current_user.id)
   end
 
   def new

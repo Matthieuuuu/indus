@@ -1,3 +1,12 @@
 # What a nice space !
-<%= render "show", site: @site %>
 
+<%= simple_form_for @stay do |f| %>
+  <%= f.hidden_field :site_id, value: @site.id %>
+  <%= f.input :begin_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, 'Request!'  %>
+<% end %>
+
+<%= puts @stay.to_yaml %>
+
+<%= render "show", site: @site %>

@@ -1,34 +1,25 @@
 class StaysController < ApplicationController
   def index
+    @stay = Stay.new
   end
 
   def create
-    Stay.create(user: current_user, site: Site.find(params[:id]), begin_date: params[:begin_date], end_date: params[:end_date]) # see params!
+    stay = Stay.create(user: current_user)
+    stay.update(stay_params)
     redirect_to stays_path
   end
 
   def update
+    stay = Stay.find(stay_params[:stay_id])
+    stay.update(status: stay_params[:status])
     redirect_to stays_path
   end
 
+  private
 
+  def stay_params
+    params.require(:stay).permit(:site_id, :begin_date, :end_date, :status, :stay_id)
+  end
 
-  # def cancel_booking
-  #   stay = Stay.find(params[:id]) # check params value
-  #   stay.status = "Cancelled"
-  #   redirect_to staysS_path
-  # end
-
-  # def accept_booking
-  #   stay = Stay.find(params[:id]) # check params value
-  #   stay.status = "Accepted"
-  #   redirect_to staysS_path
-  # end
-
-  # def decline_booking
-  #   stay = Stay.find(params[:id]) # check params value
-  #   stay.status = "Declined"
-  #   redirect_to staysS_path
-  # end
 
 end

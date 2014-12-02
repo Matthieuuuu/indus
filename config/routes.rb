@@ -21,8 +21,7 @@ get 'search', to: 'sites#search'
 
 # stays
 post 'stays/create', to: 'stays#create', as: :create_stay
-post 'stays/update', to: 'stays#update'
-get 'stays', to: 'stays#index'
+resources :stays, only: [:index, :create, :update]
 
 # pages
 #   #landing                      --> '/'
