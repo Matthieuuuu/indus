@@ -11,12 +11,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<<<<<<< HEAD
 
   <%= render "shared/navbar" %>
 
   <%= yield %>
 
   <%= render "shared/footer" %>
+=======
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/flash' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      <% render 'layouts/sessions' %>
+      </div>
+    </div>
+      <%= yield %>
+  </div>
+>>>>>>> master
 
 </body>
 </html>
