@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 resources :sites, only: [:new, :create, :show, :update, :edit]
 get 'search', to: 'sites#search'
 
-
+resources :users, only: [:show,:edit, :update]
 
 #  root to: 'pages#landing'
 
@@ -26,6 +26,10 @@ resources :stays, only: [:index, :create, :update]
 # pages
 #   #landing                      --> '/'
 #   #about                        -->  'about'
+
+get '/', to: 'pages#landing', as: :landing
+get '/about', to: 'pages#about', as: :about
+
 
 # sites
 #   #new                          --> 'site/new'
