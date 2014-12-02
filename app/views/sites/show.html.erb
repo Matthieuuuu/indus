@@ -1,9 +1,3 @@
 # What a nice space !
-<ul>
-  <li><%=  @site.title %></li>
-  <li><%=  @site.description %></li>
-  <li><%=  @site.daily_price %></li>
-  <li><%=  @site.zip_code %></li>
-</ul>
-
+<%= render "show", site: @site %>
 
