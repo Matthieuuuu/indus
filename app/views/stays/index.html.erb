@@ -1,0 +1,34 @@
+<h1>Your bookings</h1>
+
+<% current_user.stays.each do |stay| %>
+
+  From <%= stay.begin_date %> to <%= stay.end_date %>
+  Status: <%= stay.status %> (updated) <%= stay.response_at %>
+
+  <% simple_form_for @stay do |f| %>
+    <%= f.hidden_field :status, value: "cancelled" %>
+    <%= f.button :submit, 'Cancel booking'  %>
+  <% end %>
+
+<% end %>
+
+<h1>Manage your requests</h1>
+
+<% current_user.sites.each do |site| %>
+  <% site.stays.each do |stay| %>
+
+  From <%= stay.begin_date %> to <%= stay.end_date %>
+  Status: <%= stay.status %> (updated) <%= stay.response_at %>
+
+    <% simple_form_for @stay do |f| %>
+      <%= f.hidden_field :status, value: "accepted" %>
+      <%= f.button :submit, 'Accept booking'  %>
+    <% end %>
+
+    <% simple_form_for @stay do |f| %>
+      <%= f.hidden_field :status, value: "declined" %>
+      <%= f.button :submit, 'Decline booking'  %>
+    <% end %>
+
+  <% end %>
+<% end %>

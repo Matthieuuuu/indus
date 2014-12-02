@@ -1,0 +1,40 @@
+  <h1> <%= link_to site.title,  site_path(site) %></h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 bg-success">
+        <i class="fa fa-money"></i> <%=  site.daily_price.round %>
+      </div>
+      <div class="col-md-3 bg-success">
+        <i class="fa fa-tag"></i> <%=  site.category %>
+      </div>
+      <div class="col-md-3 bg-success">
+        <i class="fa fa-location-arrow"></i> <%=  site.city %>
+      </div>
+      <div class="col-md-3 bg-success">
+        <%= link_to "more on internet",  site.url %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%=  site.description %>
+      </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag("#{site.picture_url}", class: "img-responsive") %>
+      </div>
+      <div class="col-md-4">
+          <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{site.lat},#{site.lng}&zoom=12&size=1200x400&maptype=hybrid", class: "img-responsive") %>
+      </div>
+      <div class="col-md-4">
+          <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{site.lat},#{site.lng}&zoom=19&size=1200x400&maptype=satellite" , class: "img-responsive") %>
+      </div>
+    </div>
+  </div>

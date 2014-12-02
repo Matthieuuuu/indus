@@ -20,13 +20,17 @@ resources :users, only: [:show,:edit, :update]
 #   #owner_index                  --> 'me/requests'
 
 # stays
-#   #create [POST]                --> 'stay/create'
-#   #update_status  TYPE: POST    --> 'stay/update'
-#     [accepted, declined, cancel]
+post 'stays/create', to: 'stays#create', as: :create_stay
+post 'stays/update', to: 'stays#update'
+get 'stays', to: 'stays#index'
 
 # pages
 #   #landing                      --> '/'
 #   #about                        -->  'about'
+
+get '/', to: 'pages#landing', as: :landing
+get '/about', to: 'pages#about', as: :about
+
 
 # sites
 #   #new                          --> 'site/new'
