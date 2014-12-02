@@ -27,6 +27,9 @@ class SitesController < ApplicationController
     redirect_to site_path(@site)
   end
 
+  def search
+    @sites = Site.all
+  end
 
   private
 
