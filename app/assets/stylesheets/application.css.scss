@@ -1,10 +1,14 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "bootstrap-slider";
 
 // Your SCSS files
 @import "navbar";
 @import "footer";
+
+
+
 
 body{
   padding-top: 50px;
@@ -70,7 +74,6 @@ body{
 .soon {
   padding-top: 80px;
   text-align: center;
-  width:60%;
   margin:auto;
   }
 
