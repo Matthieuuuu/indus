@@ -21,9 +21,7 @@ get 'search', to: 'sites#search'
 
 # stays
 post 'stays/create', to: 'stays#create', as: :create_stay
-post 'stays/cancel_booking', to: 'stays#cancel_booking', as: :cancel_stay
-post 'stays/accept_booking', to: 'stays#accept_booking', as: :accept_stay
-post 'stays/decline_booking', to: 'stays#decline_booking', as: :decline_stay
+post 'stays/update', to: 'stays#update'
 get 'stays', to: 'stays#index'
 
 # pages
