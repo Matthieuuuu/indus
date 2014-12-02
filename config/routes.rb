@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 #   CONTROLLERS
+
+# sites
+resources :sites, only: [:new, :create, :show, :update, :edit]
+get 'search', to: 'sites#search'
+
+
+
 #  root to: 'pages#landing'
+
+
 # me
 #   DEVISE#signup                 --> 'signup'
 #   DEVISE#signin                 --> 'signin'
@@ -20,8 +29,9 @@ Rails.application.routes.draw do
 #   #about                        -->  'about'
 
 # sites
-#   #new [+create, TYPE: POST]    --> 'site/new'
-#   #show [+delete, TYPE: DELETE] --> 'site/:id'
-#   #edit [+update, TYPE: POST]   --> 'site/:id/edit'
-#   #search [TYPE: GET]           --> 'search?params'
+#   #new                          --> 'site/new'
+#   #create                       --> 'site/create' (post)
+#   #show                         --> 'site/:id'
+#   #edit & #update               --> 'site/:id/edit' (post)
+#   #search                       --> 'search?params'
 end
