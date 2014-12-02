@@ -26,23 +26,25 @@
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
             <%= image_tag "http://placehold.it/30x30", id: "profile-pic" %>
-            Profile <span class="caret"></span>
+            <%= current_user.email %> <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <li>
-              <%= link_to "/users/1" do %>
-                <i class="fa fa-user"></i> Profile
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "/users/1/flats" do %>
-                <i class="fa fa-home"></i> Factories
-              <% end %>
-            </li>
-            <li>
-              <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
-                <i class="fa fa-sign-out"></i>
 
+              <%= link_to edit_user_path(current_user) do %>
+              <i class="fa fa-user"></i> Edit Profile
+              <% end %>
+
+            </li>
+            <li>
+              <%= link_to search_path  do %>
+                <i class="fa fa-home"></i> Sites
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: 'delete' do %>
+                <i class="fa fa-sign-out"></i> Sign out
+              <% end %>
             </li>
           </ul>
         </li>
@@ -56,7 +58,7 @@
         <% end %>
 
         <li>
-          <%= link_to "/flats/new", class: "btn btn-primary", id: "nav-btn" do %>
+          <%= link_to new_site_path, class: "btn btn-primary", id: "nav-btn" do %>
             Publish a site
           <% end %>
         </li>
