@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(version: 20141202115055) do
 
   add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
 
+  create_table "stays", force: true do |t|
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.datetime "response_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "site_id"
+  end
+
+  add_index "stays", ["site_id"], name: "index_stays_on_site_id", using: :btree
+  add_index "stays", ["user_id"], name: "index_stays_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

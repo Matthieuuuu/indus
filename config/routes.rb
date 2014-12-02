@@ -20,9 +20,9 @@ get 'search', to: 'sites#search'
 #   #owner_index                  --> 'me/requests'
 
 # stays
-#   #create [POST]                --> 'stay/create'
-#   #update_status  TYPE: POST    --> 'stay/update'
-#     [accepted, declined, cancel]
+post 'stays/create', to: 'stays#create', as: :create_stay
+post 'stays/update', to: 'stays#update'
+get 'stays', to: 'stays#index'
 
 # pages
 #   #landing                      --> '/'
