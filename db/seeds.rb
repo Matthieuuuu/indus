@@ -17,7 +17,8 @@ Site.create(
   available: true,
   lat: 51.389722,
   lng: 30.099167,
-  city: "Tchernobyl"
+  city: "Tchernobyl",
+  url:"http://www.lovethesepics.com/2013/03/chernobyl-exclusion-zone-adrenaline-radiation-urbex-a-good-day-to-die-hard/"
   )
 
 
@@ -29,7 +30,8 @@ Site.create(
   available: true,
   lat: 42.3082963,
   lng: -83.0881437,
-  city: "Tchernobyl"
+  city: "Detroit",
+  url: "http://zfein.com/photography/detroit/harbor_terminal/"
   )
 
 Site.create(
@@ -40,6 +42,7 @@ Site.create(
   available: true,
   lat: 42.379617,
   lng: -83.028928,
-  city: "Tchernobyl"
+  city: "Detroit",
+  url:"http://zfein.com/photography/detroit/packard/index.html"
   )
 
