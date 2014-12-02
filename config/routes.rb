@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
 #   CONTROLLERS
+
+# sites
+resources :sites, only: [:new, :create, :show, :update, :edit]
+get 'search', to: 'sites#search'
+
+
+
+#  root to: 'pages#landing'
+
 
 # me
 #   DEVISE#signup                 --> 'signup'
@@ -20,8 +30,9 @@ post 'stays/decline_booking', to: 'stays#decline_booking', as: :decline_stay
 #   #about                        -->  'about'
 
 # sites
-#   #new [+create, TYPE: POST]    --> 'site/new'
-#   #show [+delete, TYPE: DELETE] --> 'site/:id'
-#   #edit [+update, TYPE: POST]   --> 'site/:id/edit'
-#   #search [TYPE: GET]           --> 'search?params'
+#   #new                          --> 'site/new'
+#   #create                       --> 'site/create' (post)
+#   #show                         --> 'site/:id'
+#   #edit & #update               --> 'site/:id/edit' (post)
+#   #search                       --> 'search?params'
 end
