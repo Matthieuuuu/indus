@@ -1,7 +1,8 @@
       <div class="top">
         <div class="fond">
           <div class="banner">
-            <h1>GHOST PLACES FOR HUMANS <%= @range_price %></h1><br>
+            <h1>GHOST PLACES <br>
+             FOR HUMANS ADVENTURES </h1><br>
               <p>Rent spectacular places across the world</p>
             <div class ="soon">
               <div class="cta">
@@ -11,12 +12,10 @@
 
                   <select name="category" class="form-control">
                       <option >Kind of place</option>
-                      <option value="nuke">Nuke</option>
-                      <option value="abandoned">Abandoned factory</option>
-                      <option value="running">Running factory</option>
-                      <option value="carrier">Carrier</option>
-                      <option value="statium">Stadiumr</option>
-                  </select>
+
+                      <% @categories.each do |category| %>
+                        <option value="<%= category %>"/><%= category %></option>
+                      <% end %>
 
                   <b>€ <%= @min_price %></b> <input id="ex2" class="span2" name="range_price" value="" data-slider-min="20" data-slider-max="<%= @max_price %>" data-slider-step="5" data-slider-value="[40,50]"/> <b>€ <%= @max_price %> </b>
 
