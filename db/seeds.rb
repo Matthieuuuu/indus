@@ -1,19 +1,82 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# @categories = ["nuke","abandoned factory","running factory","carrier"]
+require 'faker'
 
-@categories = ["nuke","abandoned factory","running factory","carrier"]
-
+100.times do
+  name = Faker::Name.name
+  email = Faker::Internet.email
+  User.create!(name: name, email: email, password: '12345678')
+end
 
 Site.create(
-  title: "tchernobyl",
+  title: "The lost city of Vogelsang and its nuclear secrets",
+  description: "The Russians withdrew the weapons in a hurry after just a few months, in August, likely for political reasons with Nikita Khrushchev visiting American counterpart Dwight Eisenhower in September. However, another sneaky deployment – this time with R-12 (SS-4 Sandal) nuclear missiles capable of reaching 2,000 kilometers – was supposed to have been sent here in 1961-62 during the top secret ‘Operatsiya Tuman.’ It was so damned secret not even the soldiers knew where they were being deployed.",
+  daily_price: 15,
+  category: "Nuclear winter",
+  available: true,
+  lat: 52.5243700,
+  lng: 13.4105300,
+  city: "Berlin",
+  url:"http://www.abandonedberlin.com/2014/11/vogelsang-soviet-military-camp-nuclear-missiles.html",
+  picture_url: "http://4.bp.blogspot.com/-FXJ8BE0Kzuk/VHJ3mdTAcHI/AAAAAAACu-A/IZnqJ_EBLPA/s1600/Vogelsang%2BSoviet%2BMilitary%2BNuclear%2BBase%2BAbandoned%2BBerlin-1200711.jpg"
+  )
+
+Site.create(
+  title: "Haunted by history: The ghosts of Beelitz-Heilstätten",
+  description: "Beelitz-Heilstätten, former TB clinic and sanatorium turned military hospital during the first and second world wars, and kept on as same afterwards by the victorious Russians. Hitler and Honecker were its most famous patients but there were plenty of others too.",
+  daily_price: 40,
+  category: "Abandonned sanatorium",
+  available: true,
+  lat: 52.5243700,
+  lng: 13.4105300,
+  city: "Berlin",
+  url:"http://www.abandonedberlin.com/2014/08/beelitz-heilstaetten-abandoned-sanatorium-hospital-berlin.html",
+  picture_url: "http://3.bp.blogspot.com/-m4GH4k1zED0/U_JQmTjJRuI/AAAAAAACtOw/FT1uhjbZKTs/s1600/Beelitz-Heilsta%CC%88tten%2BIII%2BAbandoned%2BBerlin-7941.jpg"
+  )
+
+Site.create(
+  title: "Anatomy institute: Abgehakt",
+  description: "You expect decaying corpses, chopped up bodies, putrid specimens of flesh, the remains of fevered experiments, but all the evidence is gone, surgically removed. Even the flies have left. Or so it seems… Some clues remain, hinting at a questionable past. Tiled rooms, laboratories, dissecting tables, display cases, strange contraptions, eerie auditoriums, projector rooms, hurriedly scribbled notes, telephones for contact with the outside world, sinks, desks, chairs, cabinets, files, a toilet brush, former lab rats. Put them together and there can be no mistake – this place was once dedicated to the gruesome field of anatomy. Downstairs would send a chill down your back, as indeed the cold steel scalpels must have done to their victims. This is where the corpses were stored, kept fresh in stainless steel fridges stacked like pigeonholes.",
+  daily_price: 28,
+  category: "Abandonned sanatorium",
+  available: true,
+  lat: 52.5243700,
+  lng: 13.4105300,
+  city: "Berlin",
+  url:"http://www.abandonedberlin.com/2014/04/anatomy-institute-abandoned-college.html",
+  picture_url: "http://1.bp.blogspot.com/-WyEoFB6kK7M/U2k-4Q9sNZI/AAAAAAACr8I/ZFRw_ITbsEU/s1600/Anatomy+Institute+College+dissecting+tables+fridges+Abandoned+Berlin-5956.jpg"
+  )
+
+Site.create(
+  title: "Buried in a bunker: Last traces of the Luna-Lager labor camp",
+  description: "Wartime bunker, all that’s left of the former Luna-Lager labor camp at Schönholzer Heide, now a grassy, half-wild and quite pleasant 35-hectare park.",
+  daily_price: 40,
+  category: "Bunker",
+  available: true,
+  lat: 52.5243700,
+  lng: 13.4105300,
+  city: "Berlin",
+  url:"http://www.abandonedberlin.com/2014/05/luna-lager-bunker-nazi-labor-camp-berlin.html",
+  picture_url: "http://2.bp.blogspot.com/-0U2vWt-q7LI/U2KxagxT0aI/AAAAAAACr6Q/iX7Vao0LMYY/s1600/Bunker+Luna-Lager+Nazi+Labour+Camp+Abandoned+Berlin-3403.jpg"
+  )
+
+Site.create(
+  title: "Frozen out Eisfabrik: The abandoned ice factory",
+  description: "Berliner Eisfabrik. Abandoned ice factory, one of Germany’s oldest, which managed to survive two world wars, several fires and countless parties but is about to meet its fate at the hands of developers despite being a protected building. There's a nice view of the river and my beloved Fernsehturm from the roof, and it’s also home to some fine street art.",
+  daily_price: 40,
+  category: "Abandoned factory",
+  available: true,
+  lat: 52.5243700,
+  lng: 13.4105300,
+  city: "Berlin",
+  url:"http://www.abandonedberlin.com/2011/11/frozen-out-abandoned-ice-factory.html",
+  picture_url: "http://3.bp.blogspot.com/-irJ9smu77ak/UxpdIK6peEI/AAAAAAACrNo/Sc1Z89-HMyo/s1600/Eisfabrik+Abandoned+Ice+Factory+Berlin-9002.jpg"
+  )
+
+Site.create(
+  title: "Tchernobyl",
   description: "The Chernobyl disaster was the worst nuclear power plant accident in history in terms of cost and casualties,[1] and is one of only two classified as a level 7 event (the maximum classification) on the International Nuclear Event Scale (the other being the Fukushima Daiichi nuclear disaster in 2011).[2] The battle to contain the contamination and avert a greater catastrophe ultimately involved over 500,000 workers and cost an estimated 18 billion rubles (18 billion $USD) .[3][4] During the accident itself, 31 people died, and long-term effects such as cancers and deformities are still being accounted for.",
   daily_price: 40,
-  category: "nuke",
+  category: "Nuclear winter",
   available: true,
   lat: 51.389722,
   lng: 30.099167,
@@ -48,4 +111,3 @@ Site.create(
   url:"http://zfein.com/photography/detroit/packard/index.html",
   picture_url:"http://1.1.1.1/bmi/zfein.com/photography/detroit/packard/images/IMG_5018_A.jpg"
   )
-
