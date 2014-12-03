@@ -1,7 +1,6 @@
 Site: <strong><%= stay.site.title %><br></strong>
-Stay id: <%= stay.id %><br>
 From <%= stay.begin_date %> to <%= stay.end_date %><br>
-Status: <%= stay.status %> (updated on <%= stay.response_at %>)<br><br>
+Status: <%= stay.status %><br><br>
 
 <% if stay.status != "cancelled" %>
     <%= render "update_form", new_status: "cancelled", stay: stay %>
