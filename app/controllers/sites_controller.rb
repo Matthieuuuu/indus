@@ -40,14 +40,14 @@ class SitesController < ApplicationController
 
     @sites = Site.all
 
-    # if params[:range_price]
+    if params[:range_price]
         price_range = params[:range_price].split("%2C")
         @min_price_result = price_range.join.split(",")[0].to_f
         @max_price_result = price_range.join.split(",")[1].to_f
         @results = Site.where(["daily_price >= '%s' and daily_price <= '%s'", @min_price_result, @max_price_result])
-    # else
-    #   @results = @sites
-    # end
+    else
+       @results = @sites
+    end
 
     # @results = Site.where(category: params[:category])
 
