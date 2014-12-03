@@ -11,7 +11,7 @@ From <%= stay.begin_date %> to <%= stay.end_date %><br><br>
 
         <%= simple_form_for stay do |f| %>
           <%= f.hidden_field :status, value: "accepted" %>
-          <%= f.hidden_field :stay_id, value: stay.id %>
+          <%= f.hidden_field :stay, value: stay %>
           <%= f.hidden_field :response_at, value: Time.now %>
           <%= f.submit 'Accept booking', class: 'btn btn-primary'  %>
         <% end %>
@@ -20,7 +20,7 @@ From <%= stay.begin_date %> to <%= stay.end_date %><br><br>
       <div class="col-xs-6">
           <%= simple_form_for stay do |f| %>
             <%= f.hidden_field :status, value: "declined" %>
-            <%= f.hidden_field :stay_id, value: stay.id %>
+            <%= f.hidden_field :stay, value: stay %>
             <%= f.hidden_field :response_at, value: Time.now %>
             <%= f.submit 'Decline booking', class: 'btn btn-danger'  %>
           <% end %>
