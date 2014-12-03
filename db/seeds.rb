@@ -74,7 +74,7 @@ Site.create(
 
 Site.create(
   title: "Tchernobyl",
-  description: "The Chernobyl disaster was the worst nuclear power plant accident in history in terms of cost and casualties,[1] and is one of only two classified as a level 7 event (the maximum classification) on the International Nuclear Event Scale (the other being the Fukushima Daiichi nuclear disaster in 2011).[2] The battle to contain the contamination and avert a greater catastrophe ultimately involved over 500,000 workers and cost an estimated 18 billion rubles (18 billion $USD) .[3][4] During the accident itself, 31 people died, and long-term effects such as cancers and deformities are still being accounted for.",
+  description: "The Chernobyl disaster was the worst nuclear power plant accident in history in terms of cost and casualties, and is one of only two classified as a level 7 event (the maximum classification) on the International Nuclear Event Scale (the other being the Fukushima Daiichi nuclear disaster in 2011). The battle to contain the contamination and avert a greater catastrophe ultimately involved over 500,000 workers and cost an estimated 18 billion rubles (18 billion $USD). During the accident itself, 31 people died, and long-term effects such as cancers and deformities are still being accounted for.",
   daily_price: 40,
   category: "Nuclear winter",
   available: true,
