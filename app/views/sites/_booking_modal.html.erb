@@ -1,0 +1,27 @@
+<div class="modal fade" id="BookingModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+      <h4 class="modal-title" id="myModalLabel">Your life will be changed forever - BOOK NOW!</h4>
+      </div>
+      <div class="modal-body text-left" >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+
+                <h2>BOOK NOW WE NEED TO PAY THE RENT</h2>
+                <%= simple_form_for(stay, html: { class: 'form-inline text-right', style: 'width: 75%'}) do |f| %>
+                <%= f.hidden_field :site_id, value: site.id %>
+                <%= f.input :begin_date, label: 'Arrrival', class: 'form-group' %><br>
+                <%= f.input :end_date, label: 'Departure' %><br>
+                <%= f.submit 'Request your cancer', class: 'btn btn-danger' %>
+                <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
