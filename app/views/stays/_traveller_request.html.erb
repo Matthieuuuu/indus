@@ -1,11 +1,11 @@
 Site: <strong><%= stay.site.title %><br></strong>
-From <%= stay.begin_date %> to <%= stay.end_date %><br>
-Status: <%= stay.status %><br><br>
+Dates: <%= stay.begin_date %> to <%= stay.end_date %><br>
+Status: <% if stay.status %><%= stay.status %><br><br><% else %> <b>pending</b><% end %>
 
 <% if stay.status != "cancelled" %>
     <%= render "update_form", new_status: "cancelled", stay: stay %>
 <% else %>
-  <i>You cancelled this booking on <%= stay.response_at %></i>
+  <i>You cancelled this booking on <%= stay.response_at.to_date %></i>
 <% end %>
 
 <br><br><br>
