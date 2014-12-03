@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
 
   # resources :sites, only: [:new, :create, :show, :update, :edit]
-
+  skip_before_action :authenticate_user! , only: [:index]
 
   def show
     @site = Site.find(params[:id])
