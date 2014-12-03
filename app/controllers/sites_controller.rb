@@ -32,6 +32,11 @@ class SitesController < ApplicationController
     @sites = Site.all
   end
 
+  def index
+    @sites = Site.all
+  end
+
+
   private
 
 
