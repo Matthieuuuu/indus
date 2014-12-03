@@ -1,13 +1,13 @@
       <div class="top">
         <div class="fond">
           <div class="banner">
-            <h1>GHOST PLACES FOR HUMANS</h1><br>
+            <h1>GHOST PLACES FOR HUMANS <%= @range_price %></h1><br>
               <p>Rent spectacular places across the world</p>
             <div class ="soon">
               <div class="cta">
 
                 <form class="form-inline" role="form" action="/">
-                  <input type="text" class="form-control search" placeholder="keyword or city" required >
+                  <input type="text" class="form-control search" placeholder="keyword or city" >
 
                   <select name="category" class="form-control">
                       <option >Kind of place</option>
@@ -18,9 +18,9 @@
                       <option value="statium">Stadiumr</option>
                   </select>
 
-                  <b>€ <%= @min_price %></b> <input id="ex2" class="span2" value="" data-slider-min="20" data-slider-max="<%= @max_price %>" data-slider-step="5" data-slider-value="[40,50]"/> <b>€ <%= @max_price %> </b>
+                  <b>€ <%= @min_price %></b> <input id="ex2" class="span2" name="range_price" value="" data-slider-min="20" data-slider-max="<%= @max_price %>" data-slider-step="5" data-slider-value="[40,50]"/> <b>€ <%= @max_price %> </b>
 
-                  <button type="submit" class="btn btn-default">Search</button>
+                  <button id="search" type="submit" class="btn btn-default">Search</button>
                 </form>
 
 

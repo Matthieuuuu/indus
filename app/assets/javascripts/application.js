@@ -5,5 +5,7 @@
   //= require_tree .
 
 $(document).ready(function() {
+
   $("#ex2").slider({});
+
 });
