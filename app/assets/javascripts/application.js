@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-slider
+//= require bootstrap-datepicker
   //= require_tree .
 
 $(document).ready(function() {
