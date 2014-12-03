@@ -10,16 +10,15 @@ class StaysController < ApplicationController
   end
 
   def update
-    stay = Stay.find(stay_params[:stay_id])
-    stay.update(status: stay_params[:status], response_at: stay_params[:response_at]) unless stay.status == "cancelled"
+    stay = Stay.find(params[:id])
+    stay.update(stay_params) unless stay.status == "cancelled"
     redirect_to stays_path
   end
 
   private
 
   def stay_params
-    params.require(:stay).permit(:site_id, :begin_date, :end_date, :status, :stay_id, :response_at)
+    params.require(:stay).permit(:site_id, :begin_date, :end_date, :status, :response_at)
   end
-
 
 end
