@@ -8,22 +8,11 @@ From <%= stay.begin_date %> to <%= stay.end_date %><br><br>
   <div class="container">
     <div class="row">
       <div class="col-xs-3">
-
-        <%= simple_form_for stay do |f| %>
-          <%= f.hidden_field :status, value: "accepted" %>
-          <%= f.hidden_field :stay, value: stay %>
-          <%= f.hidden_field :response_at, value: Time.now %>
-          <%= f.submit 'Accept booking', class: 'btn btn-primary'  %>
-        <% end %>
+        <%= render "update_form", new_status: "accepted", stay: stay %>
       </div>
 
       <div class="col-xs-6">
-          <%= simple_form_for stay do |f| %>
-            <%= f.hidden_field :status, value: "declined" %>
-            <%= f.hidden_field :stay, value: stay %>
-            <%= f.hidden_field :response_at, value: Time.now %>
-            <%= f.submit 'Decline booking', class: 'btn btn-danger'  %>
-          <% end %>
+        <%= render "update_form", new_status: "declined", stay: stay %>
       </div>
     </div>
   </div>

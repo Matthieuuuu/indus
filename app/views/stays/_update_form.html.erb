@@ -1,0 +1,17 @@
+<% if new_status == "cancelled" %>
+  <% button_class = 'btn btn-danger' %>
+  <% button_label = 'Cancel booking' %>
+<% elsif new_status == "accepted" %>
+  <% button_class = 'btn btn-primary' %>
+  <% button_label = 'Accept booking' %>
+<% elsif new_status == "declined" %>
+  <% button_class = 'btn btn-danger' %>
+  <% button_label = 'Decline booking' %>
+<% end %>
+
+<%= simple_form_for stay do |f| %>
+  <%= f.hidden_field :status, value: new_status %>
+  <%= f.hidden_field :stay, value: stay %>
+  <%= f.hidden_field :response_at, value: Time.now %>
+  <%= f.submit button_label, class: button_class %>
+<% end %>
