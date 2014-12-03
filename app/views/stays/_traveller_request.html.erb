@@ -1,0 +1,21 @@
+Site: <strong><%= stay.site.title %><br></strong>
+Stay id: <%= stay.id %><br>
+From <%= stay.begin_date %> to <%= stay.end_date %><br>
+Status: <%= stay.status %> (updated on <%= stay.response_at %>)<br><br>
+
+<% if stay.status != "cancelled" %>
+
+  <%= simple_form_for stay do |f| %>
+    <%= f.hidden_field :status, value: "cancelled" %>
+    <%= f.hidden_field :stay_id, value: stay.id %>
+    <%= f.hidden_field :response_at, value: Time.now %>
+    <%= f.submit 'Cancel booking', class: 'btn btn-danger' %>
+  <% end %>
+
+<% else %>
+
+<i>You cancelled this booking on <%= stay.response_at %></i>
+
+<% end %>
+
+<br><br><br>
