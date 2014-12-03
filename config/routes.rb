@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 #   CONTROLLERS
 
 # sites
@@ -37,4 +37,6 @@ get '/about', to: 'pages#about', as: :about
 #   #show                         --> 'site/:id'
 #   #edit & #update               --> 'site/:id/edit' (post)
 #   #search                       --> 'search?params'
+
+
 end
