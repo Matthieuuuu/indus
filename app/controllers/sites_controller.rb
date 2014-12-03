@@ -8,9 +8,11 @@ class SitesController < ApplicationController
     @stay = Stay.new(site: @site, user_id: current_user.id)
   end
 
+
   def new
     @site = Site.new
   end
+
 
   def create
     @site = Site.create(site_params)
@@ -33,7 +35,10 @@ class SitesController < ApplicationController
   end
 
   def index
+    @results = Site.where(category: params[:category])
     @sites = Site.all
+    @min_price = Site.minimum(:daily_price)
+    @max_price = Site.maximum(:daily_price)
   end
 
 

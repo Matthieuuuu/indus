@@ -6,10 +6,10 @@
             <div class ="soon">
               <div class="cta">
 
-                <form class="form-inline" role="form">
-                  <input type="text" class="form-control search" placeholder="city" required >
+                <form class="form-inline" role="form" action="/">
+                  <input type="text" class="form-control search" placeholder="keyword or city" required >
 
-                  <select class="form-control">
+                  <select name="category" class="form-control">
                       <option >Kind of place</option>
                       <option value="nuke">Nuke</option>
                       <option value="abandoned">Abandoned factory</option>
@@ -18,7 +18,7 @@
                       <option value="statium">Stadiumr</option>
                   </select>
 
-                  <b>€ 10</b> <input id="ex2" class="span2" value="" data-slider-min="10" data-slider-max="500" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 500</b>
+                  <b>€ <%= @min_price %></b> <input id="ex2" class="span2" value="" data-slider-min="20" data-slider-max="<%= @max_price %>" data-slider-step="5" data-slider-value="[40,50]"/> <b>€ <%= @max_price %> </b>
 
                   <button type="submit" class="btn btn-default">Search</button>
                 </form>
@@ -30,10 +30,20 @@
         </div>
       </div>
 
-      <% @sites.each do |site| %>
-        <%= render "show", :site => site %>
-        <hr>
-      <% end %>
+
+
+    <div style="mini-sites">
+        <div class="container">
+          <div class="row">
+          <% @results.each do |site| %>
+            <div class="col-md-4">
+              <%= render "mini_show", :site => site %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
 
       <div class="cards">
         <div class="container">
