@@ -11,7 +11,12 @@ gem 'figaro'
 gem 'paperclip'
 gem "letter_opener", group: :development
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+
+gem 'sass', '~> 3.2.19'
+gem 'compass', '~> 0.12.7'
+gem 'compass-rails', '~> 2.0.0'
+
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
