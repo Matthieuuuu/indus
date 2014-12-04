@@ -9,6 +9,7 @@ gem 'pg'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'paperclip'
+gem "letter_opener", group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,6 +40,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'bootstrap_form'
 
 gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem "better_errors"
