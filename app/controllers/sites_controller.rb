@@ -68,6 +68,6 @@ class SitesController < ApplicationController
 
 
   def site_params
-     params.require(:site).permit(:daily_price, :title, :url, :picture_url, :description, :category, :available, :user, :lat, :lng, :street, :city, :zip_code)
+     params.require(:site).permit(:daily_price, :title, :url, :picture_url, :description, :category, :available, :user, :lat, :lng, :street, :city, :country, :zip_code)
   end
 end

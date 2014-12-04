@@ -6,4 +6,6 @@ class Site < ActiveRecord::Base
 
   validates :title, presence: true
   validates :daily_price, presence: true
+
+  geocoded_by :address, :latitude  => :lat, :longitude => :lng # ActiveRecord
 end
