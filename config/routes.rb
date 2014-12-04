@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 #   CONTROLLERS
 
@@ -23,7 +25,10 @@ resources :users, only: [:show,:edit, :update]
 
 # stays
 post 'stays/create', to: 'stays#create', as: :create_stay
-resources :stays, only: [:index, :create, :update]
+
+resources :stays, only: [:index, :create, :update] do
+  resources :reviews, only: [:new, :create]
+end
 
 # pages
 #   #landing                      --> '/'
