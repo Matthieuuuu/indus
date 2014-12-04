@@ -10,14 +10,22 @@
         <% else %>
         <i>You do not have any bookings, BOOK NOW PLEASE WE ARE STARVING</i>
         <% end %>
-        <% if current_user.sites.first%>
-          <h1>Manage your requests</h1>
-          <i>You are currently managing <%= current_user.sites.count %> properties.</i>'
 
+        <% if current_user.sites.count == 0 %>
+          <i>You are not managing any site right now.</i>
+        <% elsif current_user.sites.count == 1 %>
+          <h1>Manage your requests</h1>
+          <i>You are managing one site.</i>
+        <% elsif current_user.sites.count > 1 %>
+          <h1>Manage your requests</h1>
+          <i>You are managing <%= current_user.sites.count %> sites.</i>
+        <% end %>
+
+        <% if current_user.sites.first%>
           <% has_booking = false %>
           <% current_user.sites.each do |site| %>
             <% if site.stays.first %>
-              has_booking = true
+             <% has_booking = true %>
             <% end %>
           <% end %>
 
