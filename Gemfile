@@ -9,6 +9,7 @@ gem 'pg'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'paperclip'
+gem "letter_opener", group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

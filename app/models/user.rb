@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :stays
   has_many :sites
 
+  after_create :send_welcome_email
   # has_attached_file :picture,
   #   styles: { medium: "300x300>", thumb: "100x100>" }
 
@@ -24,5 +25,11 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver
   end
 end
