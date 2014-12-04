@@ -1,29 +1,17 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Site do
+
+  permit_params :user#, :title, :city, :description, :category, :available
+
   index do
     selectable_column
-    column :id
-    column :email
-    column :name
-    column :sites
-    column :stays
-    column :created_at
-    column :admin
+    column :user
+    column :title
+    column :city
+    # column :description
+    column :category
+    column :available
     actions
   end
-
-  form do |f|
-    f.inputs "Identity" do
-      f.input :name
-      f.input :email
-    end
-    f.inputs "Admin" do
-      f.input :admin
-    end
-    f.actions
-  end
-
-  permit_params :name, :email, :admin
-end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -36,3 +24,6 @@ end
   #   permitted << :other if resource.something?
   #   permitted
   # end
+
+
+end
