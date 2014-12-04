@@ -50,6 +50,7 @@ end
 gem 'bootstrap-slider-rails'
 gem "geocoder"
 gem 'country_select', github: 'stefanpenner/country_select'
+gem 'chosen-rails'
 
 
 

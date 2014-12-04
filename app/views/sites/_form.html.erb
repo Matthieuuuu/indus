@@ -31,8 +31,8 @@
       <legend>Address</legend>
         <%= f.input :street, required: true %>
         <%= f.input :city, required: true %>
-        <%= f.input :zip_code, required: true %>
-        <%= f.input :country, :as => :string%>
+        <%= f.input :zip_code, required: true  %>
+        <%= f.input :country, input_html: { class: 'chosen-select' }%>
     </fieldset>
 
     <fieldset>
