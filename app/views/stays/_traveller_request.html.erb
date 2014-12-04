@@ -1,4 +1,5 @@
-Site: <strong><%= stay.site.title %><br></strong>
+<h3>Site: <strong><%= stay.site.title %></strong></h3>
+<strong>Contact:</strong> <%= stay.site.user.email %>
 Dates: <%= stay.begin_date %> to <%= stay.end_date %><br>
 Status: <% if stay.status %><%= stay.status %><br><br><% else %> <b>pending</b><% end %>
 

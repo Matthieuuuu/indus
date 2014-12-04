@@ -1,9 +1,10 @@
-From <%= stay.begin_date %> to <%= stay.end_date %><br><br>
+From <%= stay.begin_date %> to <%= stay.end_date %><br>
+<strong>Contact:</strong> <%= stay.site.user.email %><br><br>
 <% if ["accepted", "declined"].include? stay.status %>
   <i>You <%= stay.status %> this request on <%= stay.response_at.to_date %>.</i><br>
 <% end %>
 
-<% if stay.status != "cancelled" %>
+<% if !stay.status %>
 
   <div class="container">
     <div class="row">

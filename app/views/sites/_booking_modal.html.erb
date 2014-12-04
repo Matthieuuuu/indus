@@ -24,7 +24,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -33,19 +32,27 @@
 <script>
 
 $('.input-daterange').datepicker({
-  dateFormat: "dd/mm/yyyy",
-  startDate: "+1d",
-  todayHighlight: true,
-  todayBtn: true,
-  autoclose: true
+    // format: "dd/mm/yyyy",
+    // startDate: 0,
+    // todayBtn: true,
+    // todayHighlight: true,
+    // autoclose: true
 });
 
-$('.input-daterange').datepicker().on('changeDate', function(e){
-  console.log('fuck you')
-  $('.input-daterange').datepicker({
-    startDate: "+4d",
-    todayBtn: false
-  });
-});
+// $('#datepicker').datepicker({
+//   dateFormat: "dd/mm/yyyy",
+//   startDate: "+1d",
+//   todayHighlight: true,
+//   todayBtn: true,
+//   autoclose: true
+// });
+
+// $('.input-daterange').datepicker().on('changeDate', function(e){
+//   console.log('fuck you')
+//   $('.input-daterange').datepicker({
+//     startDate: "+4d",
+//     todayBtn: false
+//   });
+// });
 
 </script>
