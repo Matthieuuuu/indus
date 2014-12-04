@@ -3,9 +3,14 @@
 //= require bootstrap-sprockets
 //= require bootstrap-slider
 //= require bootstrap-datepicker
+//= require chosen-jquery
   //= require_tree .
 
 $(document).ready(function() {
+
+
+  $(".chosen-select").chosen();
+
 
   $("#ex2").slider({
   });
