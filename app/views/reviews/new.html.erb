@@ -1,1 +1,21 @@
-<h1>Add review for this flat</h1>
+
+<div class="vertical-spacer"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+
+      <h1>Add review for this flat</h1>
+
+      <%= simple_form_for(@review, url: stay_reviews_path(@stay) ) do |f| %>
+        <%= f.input :content,  as: :text, placeholder: "awesome stay.." %>
+        <%= f.input :rating, collection: 1..5, prompt: "Choose a rating" %>
+        <%= f.submit "Create review", class: "btn btn-primary"%>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class="vertical-spacer"></div>

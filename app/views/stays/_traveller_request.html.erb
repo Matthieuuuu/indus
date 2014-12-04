@@ -8,4 +8,8 @@ Status: <% if stay.status %><%= stay.status %><br><br><% else %> <b>pending</b><
   <i>You cancelled this booking on <%= stay.response_at.to_date %></i>
 <% end %>
 
+
+<%= link_to "Add review", new_stay_review_path(stay), class: "btn btn-warning" %>
+
+
 <br><br><br>

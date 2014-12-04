@@ -1,4 +1,17 @@
 <%= render "bigshow", site: @site %>
 
+
+<ul>
+<% @site.stays.each do |stay| %>
+  <% unless stay.reviews.empty? %>
+    <li><%= stay.reviews.first.content %>
+      (<%= stay.reviews.first.rating %> etoiles) by
+      <%= stay.user.name %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
+
 <%= render "booking_modal", site: @site, stay: @stay %>
 

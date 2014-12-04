@@ -16,13 +16,6 @@ ActiveRecord::Schema.define(version: 20141204114834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
-  create_table "reviews", force: true do |t|
-    t.string   "content"
-    t.integer  "rating"
-    t.integer  "stay_id"
-  end
-
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -34,10 +27,19 @@ ActiveRecord::Schema.define(version: 20141204114834) do
     t.datetime "updated_at"
   end
 
-  add_index "reviews", ["stay_id"], name: "index_reviews_on_stay_id", using: :btree
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "reviews", force: true do |t|
+    t.string   "content"
+    t.integer  "rating"
+    t.integer  "stay_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["stay_id"], name: "index_reviews_on_stay_id", using: :btree
 
   create_table "sites", force: true do |t|
     t.float    "daily_price"
