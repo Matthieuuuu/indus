@@ -16,6 +16,7 @@
                       <% @categories.each do |category| %>
                         <option value="<%= category %>"/><%= category %></option>
                       <% end %>
+                  </select>
 
                   <b>€ <%= @min_price %></b> <input id="ex2" class="span2" name="range_price" value="" data-slider-min="20" data-slider-max="<%= @max_price %>" data-slider-step="5" data-slider-value="[40,50]"/> <b>€ <%= @max_price %> </b>
 

@@ -17,9 +17,16 @@
     <%= f.input :description, required: true %>
   </div>
 
-  <div class="form-inputs">
-    <%= f.input :category, required: true %>
-  </div>
+
+    <%= f.label :category %>
+
+  <select name="category" class="form-control" required>
+      <option >Kind of place</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category %>"/><%= category %></option>
+      <% end %>
+  </select>
+  <br>
 
   <div class="form-inputs">
     <%= f.input :url, required: true %>
