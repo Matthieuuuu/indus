@@ -4,9 +4,8 @@
 //= require bootstrap-slider
 //= require bootstrap-datepicker
 //= require chosen-jquery
-  //= require_tree .
 
-$(document).ready(function() {
+$().ready(function() {
 
 
   $(".chosen-select").chosen();
