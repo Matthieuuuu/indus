@@ -3,18 +3,18 @@
 @import "font-awesome";
 @import "bootstrap-slider";
 @import "bootstrap-datepicker3";
-
+@import "chosen";
 // Your SCSS files
 @import "navbar";
 @import "footer";
 @import "auth-buttons";
-@import "chosen";
+
 
 
 
 #navbar {
 
-background:rgba(0,0,0,0.8)
+background:rgba(0,0,0,0.8);
 
 }
 
@@ -23,13 +23,13 @@ body{
 }
 
 .mini-site {
-  min-height:600px
+  min-height:600px;
 }
 
 
 
 .messages {
-  display:none
+  display:none;
 }
 .user-form-style {
   margin-top:80px;margin-bottom:20px;border:1px solid lightgrey;padding-left:20px;padding-right:20px;padding-bottom:15px;border:inherit 5px #000000;
@@ -205,8 +205,6 @@ body{
   right: -8px;
 }
 
-
-@media(max-width:767px){
 
 .email {
 width: 100% !important;
