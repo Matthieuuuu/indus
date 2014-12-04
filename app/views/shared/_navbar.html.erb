@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" id="navbar" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <%= image_tag "indus_io-invert.svg", id: "logo" %>indus.io
       </a>
     </div>
@@ -25,9 +25,13 @@
 
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "http://placehold.it/30x30", id: "profile-pic" %>
-            <% if current_user.provider %>
-        <%= image_tag current_user.picture, class: "img img-circle" %>
+          <% if current_user.provider %>
+          <%= image_tag current_user.picture, class: "img img-circle" %>
+          <% else %>
+          <%= image_tag "http://placehold.it/30x30", id: "profile-pic" %>
+
+
+
       <% end %>
             <%= current_user.email %> <span class="caret"></span>
           <% end %>
@@ -44,6 +48,11 @@
                 <i class="fa fa-home"></i> Sites
               <% end %>
             </li>
+             <li>
+              <%= link_to stays_path  do %>
+                <i class="fa fa-bell"></i> Dashboard
+              <% end %>
+            </li>
             <li>
               <%= link_to destroy_user_session_path, method: 'delete' do %>
                 <i class="fa fa-sign-out"></i> Sign out
@@ -53,7 +62,7 @@
         </li>
         <% else %>
           <li>
-            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+            <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook), class: "btn-auth btn-facebook" %>
           </li>
           <li>
            <%= link_to 'Sign up', new_user_registration_path %>

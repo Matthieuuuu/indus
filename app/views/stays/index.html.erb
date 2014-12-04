@@ -1,23 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Your bookings</h1>
-
-      <% current_user.stays.each do |stay| %>
-
-        <%= render "traveller_request.html.erb", stay: stay %>
-
-      <% end %>
-
-      <h1>Manage your requests</h1>
-      <% current_user.sites.each do |site| %>
-        <% if site.stays.first %>
-          <h3>Requests for <strong><%= site.title %></strong></h3>
+<div style="padding: 60px" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Your bookings</h1>
+        <% if current_user.stays.first %>
+          <% current_user.stays.each do |stay| %>
+            <%= render "traveller_request.html.erb", stay: stay %>
+          <% end %>
+        <% else %>
+        <i>You do not have any bookings, BOOK NOW PLEASE WE ARE STARVING</i>
         <% end %>
-        <% site.stays.each do |stay| %>
-          <%= render "owner_request.html.erb", stay: stay %>
+        <% if current_user.sites.first%>
+          <h1>Manage your requests</h1>
+          <i>You are currently managing <%= current_user.sites.count %> properties.</i>'
+
+          <% has_booking = false %>
+          <% current_user.sites.each do |site| %>
+            <% if site.stays.first %>
+              has_booking = true
+            <% end %>
+          <% end %>
+
+          <% if has_booking %>
+            <% current_user.sites.each do |site| %>
+              <% if site.stays.first %>
+                <h3>Requests for <strong><%= site.title %></strong></h3>
+              <% end %>
+              <% site.stays.each do |stay| %>
+                <%= render "owner_request.html.erb", stay: stay %>
+              <% end %>
+            <% end %>
+          <% else %>
+            You do not have any bookings, <i>please do something man we're hungry</i>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

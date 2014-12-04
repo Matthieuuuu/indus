@@ -1,6 +1,11 @@
 # @categories = ["nuke","abandoned factory","running factory","carrier"]
 require 'faker'
 
+
+CATEGORIES = ['Nuclear winter', 'Abandonned sanatorium',
+  'Bunker','Abandoned factory']
+
+
 100.times do
   name = Faker::Name.name
   email = Faker::Internet.email
@@ -74,7 +79,7 @@ Site.create(
 
 Site.create(
   title: "Tchernobyl",
-  description: "The Chernobyl disaster was the worst nuclear power plant accident in history in terms of cost and casualties,[1] and is one of only two classified as a level 7 event (the maximum classification) on the International Nuclear Event Scale (the other being the Fukushima Daiichi nuclear disaster in 2011).[2] The battle to contain the contamination and avert a greater catastrophe ultimately involved over 500,000 workers and cost an estimated 18 billion rubles (18 billion $USD) .[3][4] During the accident itself, 31 people died, and long-term effects such as cancers and deformities are still being accounted for.",
+  description: "The Chernobyl disaster was the worst nuclear power plant accident in history in terms of cost and casualties, and is one of only two classified as a level 7 event (the maximum classification) on the International Nuclear Event Scale (the other being the Fukushima Daiichi nuclear disaster in 2011). The battle to contain the contamination and avert a greater catastrophe ultimately involved over 500,000 workers and cost an estimated 18 billion rubles (18 billion $USD). During the accident itself, 31 people died, and long-term effects such as cancers and deformities are still being accounted for.",
   daily_price: 40,
   category: "Nuclear winter",
   available: true,
@@ -90,7 +95,7 @@ Site.create(
   title: "Harbor terminal building",
   description: "Accompanying the loss of industry was the loss for the need of shipping and receiving. Along the once busy Detroit Harbor sits this abandoned warehouse. It's a massive 10 story building with a dozen large freight elevators, provisions for refrigerated storage, etc. Once a key point of international trade, the Harbor Terminal Building now sits empty and decaying.",
   daily_price: 20,
-  category: "abandoned factory",
+  category: "Abandoned factory",
   available: true,
   lat: 42.3082963,
   lng: -83.0881437,
@@ -103,7 +108,7 @@ Site.create(
   title: "Packard motor plant",
   description: "Packard made cars in Detroit until 1957, when this plant closed. The building itself was designed by famous architect Albert Kahn, and is one of the very first massive factories built out of reinforced concrete (a style that became the norm soon after). The complex (over 15 massive factory buildings) was built in 1909 and is one of the most dilapidated, decaying buildings in Detroit. Scrappers have ravaged the buildings, going so far as removing rebar and causing collapse. The Packard Plant has also become a hotspot for arsonists, debris in the building is set on fire on nearly a weekly basis.",
   daily_price: 60,
-  category: "abandoned factory",
+  category: "Abandoned factory",
   available: true,
   lat: 42.379617,
   lng: -83.028928,

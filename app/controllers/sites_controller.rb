@@ -35,16 +35,24 @@ class SitesController < ApplicationController
   end
 
   def index
+
+    @categories = ['Nuclear winter', 'Abandonned sanatorium',
+  'Bunker','Abandoned factory']
+
     @min_price = Site.minimum(:daily_price)
     @max_price = Site.maximum(:daily_price)
 
+
     @sites = Site.all
 
-    if params[:range_price]
+
+
+
+    if (params[:range_price] || params[:category])
         price_range = params[:range_price].split("%2C")
         @min_price_result = price_range.join.split(",")[0].to_f
         @max_price_result = price_range.join.split(",")[1].to_f
-        @results = Site.where(["daily_price >= '%s' and daily_price <= '%s'", @min_price_result, @max_price_result])
+        @results = Site.where(["daily_price >= '%s' and daily_price <= '%s' and category = '%s' ", @min_price_result, @max_price_result,params[:category]])
     else
        @results = @sites
     end
@@ -58,6 +66,6 @@ class SitesController < ApplicationController
 
 
   def site_params
-     params.require(:site).permit(:daily_price, :title, :description, :category, :available, :user, :lat, :lng, :street, :city, :zip_code)
+     params.require(:site).permit(:daily_price, :title, :url, :picture_url, :description, :category, :available, :user, :lat, :lng, :street, :city, :zip_code)
   end
 end

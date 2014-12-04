@@ -1,0 +1,51 @@
+<div class="modal fade" id="BookingModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="height: 300px">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+        <h4 class="modal-title" id="myModalLabel">Your life will be changed forever - BOOK NOW!</h4>
+      </div>
+      <div class="modal-body text-center" >
+
+        <div class="container" style='width: 100%'>
+          <div class="row">
+            <div class="col-md-12">
+                <h2>BOOK NOW PLZ WE NEED TO PAY THE RENT</h2>
+                <%= simple_form_for(stay, html: { class: 'form-inline'}) do |f| %>
+                <%= f.hidden_field :site_id, value: site.id %>
+                <div class="input-daterange input-group" id="datepicker" style="z-index: 1000000; padding: 50px;">
+                  <span class="input-group-addon">from</span>
+                  <input data-provide="datepicker" type="text" class="input-sm form-control" name="begin_date" placeholder="from" />
+                  <span class="input-group-addon">to</span>
+                  <input data-provide="datepicker" type="text" class="input-sm form-control" name="end_date" id="end_date" placeholder="to"/>
+                </div>
+                <%= f.submit 'Request your cancer', class: 'btn btn-danger' %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+$('.input-daterange').datepicker({
+  dateFormat: "dd/mm/yyyy",
+  startDate: "+1d",
+  todayHighlight: true,
+  todayBtn: true,
+  autoclose: true
+});
+
+$('.input-daterange').datepicker().on('changeDate', function(e){
+  console.log('fuck you')
+  $('.input-daterange').datepicker({
+    startDate: "+4d",
+    todayBtn: false
+  });
+});
+
+</script>
