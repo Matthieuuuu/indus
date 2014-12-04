@@ -8,4 +8,12 @@ class Site < ActiveRecord::Base
   validates :daily_price, presence: true
 
   geocoded_by :address, :latitude  => :lat, :longitude => :lng # ActiveRecord
+  after_validation :geocode
+
+
+  def address
+    # return "#{self.street},#{self.zip_code},#{self.city},#{self.country}"
+  [street, city, country].compact.join(', ')
+  end
+
 end
