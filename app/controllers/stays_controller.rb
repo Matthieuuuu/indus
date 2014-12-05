@@ -12,9 +12,7 @@ class StaysController < ApplicationController
 
   def create
     stay = Stay.create(user: current_user)
-    end_date = process_date(params[:end_date])
-    begin_date = process_date(params[:begin_date])
-    stay.update({site_id: params[:stay][:site_id], end_date: end_date, begin_date: begin_date})
+    stay.update({site_id: params[:stay][:site_id], end_date: params[:end_date], begin_date: params[:begin_date]})
     redirect_to stays_path
   end
 
@@ -24,17 +22,9 @@ class StaysController < ApplicationController
     params.require(:stay).permit(:site_id, :status, :response_at, :begin_date, :end_date)
   end
 
-  def process_date(date)
-    date_array = date.split("/")
-    day = date_array[1]
-    month = date_array[0]
-    year = date_array[2]
-    day + "/" + month + "/" + year
-  end
-
   def fill_taken_days(stay)
     (stay.begin_date..stay.end_date).to_a.each do |day|
-      TakenDayFlat.create(occupied_date: day, site: stay.site)
+      TakenFlatDay.create(occupied_date: day, site: stay.site)
+    end
   end
-
 end
