@@ -22,6 +22,7 @@
                 <%= f.submit 'Request your cancer', class: 'btn btn-danger' %>
                 <% end %>
             </div>
+            <div id="msg" style="display: none;"><i>Not available, go fuck yourself</i></div>
           </div>
         </div>
       </div>
@@ -29,25 +30,57 @@
   </div>
 </div>
 
-<script>
 
-$('.input-daterange').datepicker({
-    format: "dd/mm/yyyy",
-    startDate: 0,
-    todayBtn: true,
-    todayHighlight: true,
-    autoclose: true
-});
 
-$(document).click(function(){
-  var beginDate = $('#begin_date').val();
-  var endDate = $('#end_date').val();
-  var available = true;
-  for (var d = beginDate; d <= endDate; d.setDate(d.getDate() + 1)) {
-    if(true){
-      console.log(d);
-    }
-  }
-});
+<% content_for(:bookingmodaljs) do %>
 
-</script>
+  <%= javascript_tag do %>
+
+    <% days = [] %>
+
+    <% site.taken_flat_days.each do |day| %>
+        <% days << day.occupied_date %>
+    <% end %>
+
+    $('.input-daterange').datepicker({
+      format: "dd/mm/yyyy",
+      startDate: 0,
+      todayBtn: true,
+      todayHighlight: true,
+      autoclose: true
+    });
+
+    $(document).click(function(){
+      var beginDate = $('#begin_date').val();
+      var date_array = beginDate.split("/");
+      beginDate = new Date(date_array[2].concat("-").concat(date_array[1]).concat("-").concat(date_array[0]));
+      var endDate = $('#end_date').val();
+      date_array = endDate.split("/");
+      endDate = new Date(date_array[2].concat("-").concat(date_array[1]).concat("-").concat(date_array[0]));
+      var available = true;
+      for (var d = beginDate; d < endDate; d.setDate(d.getDate() + 1)) {
+          console.log('checking availability for :');
+          console.log(d);
+          console.log('   ');
+        <% days.each do |day| %>
+          console.log(new Date ('<%= day %>'));
+          if(Date.parse(d) === Date.parse(new Date ('<%= day %>'))){
+            available = false;
+            console.log('gogogo');
+        }
+        <% end %>
+        console.log(available);
+      }
+      if(available){
+      $('.btn').removeClass('disabled');
+      $('#msg').hide();
+      }
+      if(!available){
+      $('.btn').addClass('disabled');
+      $('#msg').show();
+      }
+    });
+
+  <% end %>
+<% end %>
+
