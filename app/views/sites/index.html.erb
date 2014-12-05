@@ -13,7 +13,7 @@
                   <select name="category" class="form-control">
                       <option >Kind of place</option>
 
-                      <% @categories.each do |category| %>
+                      <% Site::CATEGORIES.each do |category| %>
                         <option name = "category" value="<%= category %>"/><%= category %></option>
                       <% end %>
                   </select>

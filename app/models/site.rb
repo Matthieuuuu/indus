@@ -15,4 +15,7 @@ class Site < ActiveRecord::Base
   [street, city, country].compact.join(', ')
   end
 
+  CATEGORIES = ['Nuclear winter','Abandonned sanatorium',
+  'Bunker','Abandoned factory']
+
 end

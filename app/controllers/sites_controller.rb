@@ -11,8 +11,6 @@ class SitesController < ApplicationController
 
   def new
     @site = Site.new
-     @categories = ['Nuclear winter', 'Abandonned sanatorium',
-  'Bunker','Abandoned factory']
   end
 
 

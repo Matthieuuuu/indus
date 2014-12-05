@@ -21,7 +21,7 @@
         <%= f.label :category, label: "What kind of place is it ?"%>
         <select name="category" class="form-control" required>
             <option >Kind of place</option>
-          <% @categories.each do |category| %>
+          <% Site::CATEGORIES.each do |category| %>
             <option value="<%= category %>"/><%= category %></option>
           <% end %>
         </select>

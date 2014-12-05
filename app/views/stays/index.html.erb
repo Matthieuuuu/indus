@@ -19,6 +19,21 @@
         <% elsif current_user.sites.count > 1 %>
           <h1>Manage your requests</h1>
           <i>You are managing <%= current_user.sites.count %> sites.</i>
+
+          <div style="mini-sites">
+              <div class="container">
+                <div class="row">
+                <% current_user.sites.each do |site| %>
+                  <div class="col-md-4">
+                    <%= render "sites/mini_show", :site => site %>
+                    <%= link_to "Edit", edit_site_path(site), class: "btn btn-default" %>
+
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
         <% end %>
 
         <% if current_user.sites.first%>
