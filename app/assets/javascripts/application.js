@@ -4,6 +4,8 @@
 //= require bootstrap-slider
 //= require bootstrap-datepicker
 //= require chosen-jquery
+//= require underscore
+//= require gmaps/google
 
 $().ready(function() {
 
@@ -22,7 +24,5 @@ $().ready(function() {
           $('#navbar').css({"background":"none"});
       }
   });
-
-
 
 });
