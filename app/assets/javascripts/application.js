@@ -2,10 +2,14 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-slider
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
 //= require chosen-jquery
 //= require underscore
 //= require gmaps/google
+//= require twitter/typeahead
+
 
 $().ready(function() {
 
@@ -26,3 +30,5 @@ $().ready(function() {
   });
 
 });
+
+

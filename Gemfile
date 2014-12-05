@@ -69,6 +69,7 @@ gem "watu_table_builder", :require => "table_builder", :git => "git://github.com
 gem "gmaps4rails"
 gem "rails-assets-underscore"
 
+gem 'twitter-typeahead-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

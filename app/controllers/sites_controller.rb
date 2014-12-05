@@ -64,6 +64,12 @@ class SitesController < ApplicationController
       marker.lng site.lng
     end
 
+    @uniq_places =  Site.uniq.pluck(:city).map do |place|
+      {num: place}
+    end
+
+
+
   end
 
 
