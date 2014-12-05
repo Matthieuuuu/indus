@@ -17,6 +17,7 @@ gem 'compass', '~> 0.12.7'
 gem 'compass-rails', '~> 2.0.0'
 
 
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -59,6 +60,7 @@ gem "geocoder"
 gem 'country_select', github: 'stefanpenner/country_select'
 gem 'chosen-rails'
 
+gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
 
 
 # Use ActiveModel has_secure_password
