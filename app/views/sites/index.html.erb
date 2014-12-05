@@ -8,7 +8,7 @@
               <div class="cta">
 
                 <form class="form-inline" role="form" action="/">
-                  <input type="text" class="form-control search" placeholder="keyword or city" >
+                  <input type="text" id="typesearch" class="form-control search" placeholder="keyword or city" >
 
                   <select name="category" class="form-control">
                       <option >Kind of place</option>
@@ -49,7 +49,9 @@
 
 <% content_for(:js) do %>
   <%= javascript_tag do %>
+
     $(document).on('ready', function() {
+
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @markers.to_json %>);
@@ -57,13 +59,48 @@
         handler.fitMapToBounds();
       });
     })
+
+
+
+  <% end %>
+<% end %>
+
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+
+$( document ).ready(function() {
+console.log("hello");
+
+
+// instantiate the bloodhound suggestion engine
+var numbers = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('num'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  local: <%= raw(@uniq_places.to_json) %>
+});
+
+// initialize the bloodhound suggestion engine
+numbers.initialize();
+
+// instantiate the typeahead UI
+$('#typesearch').typeahead(null, {
+  displayKey: 'num',
+  source: numbers.ttAdapter()
+});
+
+});
+
+
+
   <% end %>
 <% end %>
 
 
 
 
-    </div>
+
+   </div>
 
 
 
