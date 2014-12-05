@@ -42,6 +42,33 @@
             You do not have any bookings, <i>please do something man we're hungry</i>
           <% end %>
         <% end %>
+
+<div id="calendar">
+
+
+<%= calendar_for(@stays, :year => @date.year, :month => @date.month) do |t| %>
+  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
+  <%= t.day(:day_method => :begin_date) do |day, stays| %>
+    <%= day.day %>
+
+    <% stays.each do |stay| %>
+    <ul>
+      <li><%= h(stay.site.title) %> </li>
+      <li><%= h(stay.status) %></li>
+      <li><%= h(stay.user.name) %></li>
+      <li><%= h(stay.end_date) %></li>
+        <%= render "update_form", new_status: "accepted", stay: stay %>
+        <%= render "update_form", new_status: "declined", stay: stay %>
+
+    </ul>
+    <% end %>
+
+  <% end %>
+<% end %>
+
+</div>
+
+
       </div>
     </div>
   </div>

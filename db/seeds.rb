@@ -6,11 +6,21 @@ CATEGORIES = ['Nuclear winter', 'Abandonned sanatorium',
   'Bunker','Abandoned factory']
 
 
-100.times do
-  name = Faker::Name.name
-  email = Faker::Internet.email
-  User.create!(name: name, email: email, password: '12345678')
-end
+# 10.times do
+#   name = Faker::Name.name
+#   email = Faker::Internet.email
+#   User.create!(name: name, email: email, password: '12345678')
+# end
+
+
+  p admin = User.create!(name: "admin", email: "user0@mail.com", password: 'password')
+  p user1 = User.create!(name: "user1", email: "user1@mail.com", password: 'password')
+  p user2 = User.create!(name: "user2", email: "user2@mail.com", password: 'password')
+  p  user3 = User.create!(name: "user3", email: "user3@mail.com", password: 'password')
+  p  user4 = User.create!(name: "user4", email: "user4@mail.com", password: 'password')
+  p user5 = User.create!(name: "user5", email: "user5@mail.com", password: 'password')
+
+
 
 Site.create(
   title: "The lost city of Vogelsang and its nuclear secrets",
@@ -20,6 +30,7 @@ Site.create(
   available: true,
   lat: 52.5243700,
   lng: 13.4105300,
+  user: user1,
   city: "Berlin",
   url:"http://www.abandonedberlin.com/2014/11/vogelsang-soviet-military-camp-nuclear-missiles.html",
   picture_url: "http://4.bp.blogspot.com/-FXJ8BE0Kzuk/VHJ3mdTAcHI/AAAAAAACu-A/IZnqJ_EBLPA/s1600/Vogelsang%2BSoviet%2BMilitary%2BNuclear%2BBase%2BAbandoned%2BBerlin-1200711.jpg"
@@ -34,6 +45,7 @@ Site.create(
   lat: 52.5243700,
   lng: 13.4105300,
   city: "Berlin",
+  user: user2,
   url:"http://www.abandonedberlin.com/2014/08/beelitz-heilstaetten-abandoned-sanatorium-hospital-berlin.html",
   picture_url: "http://3.bp.blogspot.com/-m4GH4k1zED0/U_JQmTjJRuI/AAAAAAACtOw/FT1uhjbZKTs/s1600/Beelitz-Heilsta%CC%88tten%2BIII%2BAbandoned%2BBerlin-7941.jpg"
   )
@@ -47,6 +59,7 @@ Site.create(
   lat: 52.5243700,
   lng: 13.4105300,
   city: "Berlin",
+  user: user1,
   url:"http://www.abandonedberlin.com/2014/04/anatomy-institute-abandoned-college.html",
   picture_url: "http://1.bp.blogspot.com/-WyEoFB6kK7M/U2k-4Q9sNZI/AAAAAAACr8I/ZFRw_ITbsEU/s1600/Anatomy+Institute+College+dissecting+tables+fridges+Abandoned+Berlin-5956.jpg"
   )
@@ -59,6 +72,7 @@ Site.create(
   available: true,
   lat: 52.5243700,
   lng: 13.4105300,
+  user: user1,
   city: "Berlin",
   url:"http://www.abandonedberlin.com/2014/05/luna-lager-bunker-nazi-labor-camp-berlin.html",
   picture_url: "http://2.bp.blogspot.com/-0U2vWt-q7LI/U2KxagxT0aI/AAAAAAACr6Q/iX7Vao0LMYY/s1600/Bunker+Luna-Lager+Nazi+Labour+Camp+Abandoned+Berlin-3403.jpg"
@@ -72,6 +86,7 @@ Site.create(
   available: true,
   lat: 52.5243700,
   lng: 13.4105300,
+  user: user3,
   city: "Berlin",
   url:"http://www.abandonedberlin.com/2011/11/frozen-out-abandoned-ice-factory.html",
   picture_url: "http://3.bp.blogspot.com/-irJ9smu77ak/UxpdIK6peEI/AAAAAAACrNo/Sc1Z89-HMyo/s1600/Eisfabrik+Abandoned+Ice+Factory+Berlin-9002.jpg"
@@ -85,9 +100,10 @@ Site.create(
   available: true,
   lat: 51.389722,
   lng: 30.099167,
+  user: user3,
   city: "Tchernobyl",
   url:"http://www.lovethesepics.com/2013/03/chernobyl-exclusion-zone-adrenaline-radiation-urbex-a-good-day-to-die-hard/",
-  picture_url: "http://1.1.1.4/bmi/www.lovethesepics.com/wp-content/uploads/2013/03/Chernobyl-Monument-and-Reactor-April-2012.jpg"
+  picture_url: "http://www.lovethesepics.com/wp-content/uploads/2013/03/Chernobyl-Monument-and-Reactor-April-2012.jpg"
   )
 
 
@@ -97,11 +113,12 @@ Site.create(
   daily_price: 20,
   category: "Abandoned factory",
   available: true,
+  user: user2,
   lat: 42.3082963,
   lng: -83.0881437,
   city: "Detroit",
   url: "http://zfein.com/photography/detroit/harbor_terminal/",
-  picture_url:"http://1.1.1.1/bmi/zfein.com/photography/detroit/harbor_terminal/images/IMG_5105_A.jpg"
+  picture_url:"http://zfein.com/photography/detroit/harbor_terminal/images/IMG_5105_A.jpg"
   )
 
 Site.create(
@@ -112,7 +129,8 @@ Site.create(
   available: true,
   lat: 42.379617,
   lng: -83.028928,
+  user: user5,
   city: "Detroit",
   url:"http://zfein.com/photography/detroit/packard/index.html",
-  picture_url:"http://1.1.1.1/bmi/zfein.com/photography/detroit/packard/images/IMG_5018_A.jpg"
+  picture_url:"http://zfein.com/photography/detroit/packard/images/IMG_5018_A.jpg"
   )
