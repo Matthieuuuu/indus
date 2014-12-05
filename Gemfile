@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'  # Add this at line 2
+
 
 ruby '2.1.2'
 gem 'rails_12factor', group: :production
@@ -61,6 +63,11 @@ gem 'country_select', github: 'stefanpenner/country_select'
 gem 'chosen-rails'
 
 gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
+
+
+
+gem "gmaps4rails"
+gem "rails-assets-underscore"
 
 
 # Use ActiveModel has_secure_password

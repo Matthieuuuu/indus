@@ -57,6 +57,13 @@ class SitesController < ApplicationController
 
     # @results = Site.where(category: params[:category])
 
+
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@sites) do |site, marker|
+      marker.lat site.lat
+      marker.lng site.lng
+    end
+
   end
 
 
