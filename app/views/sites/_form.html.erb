@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4">
     <div class="user-form-style">
 
-    <%= simple_form_for(@site, url: sites_path, html: { method: :post }) do |f| %>
+    <%= simple_form_for(@site) do |f| %>
     <%= f.error_notification %>
 
     <fieldset>
@@ -21,7 +21,7 @@
         <%= f.label :category, label: "What kind of place is it ?"%>
         <select name="category" class="form-control" required>
             <option >Kind of place</option>
-          <% @categories.each do |category| %>
+          <% Site::CATEGORIES.each do |category| %>
             <option value="<%= category %>"/><%= category %></option>
           <% end %>
         </select>

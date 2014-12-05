@@ -1,75 +1,141 @@
-<div style="padding: 60px" >
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Your bookings</h1>
-        <% if current_user.stays.first %>
-          <% current_user.stays.each do |stay| %>
-            <%= render "traveller_request.html.erb", stay: stay %>
-          <% end %>
-        <% else %>
-        <i>You do not have any bookings, BOOK NOW PLEASE WE ARE STARVING</i>
-        <% end %>
+  <div style="padding: 60px" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
 
-        <% if current_user.sites.count == 0 %>
-          <i>You are not managing any site right now.</i>
-        <% elsif current_user.sites.count == 1 %>
-          <h1>Manage your requests</h1>
-          <i>You are managing one site.</i>
-        <% elsif current_user.sites.count > 1 %>
-          <h1>Manage your requests</h1>
-          <i>You are managing <%= current_user.sites.count %> sites.</i>
-        <% end %>
+          <div role="tabpanel">
 
-        <% if current_user.sites.first%>
-          <% has_booking = false %>
-          <% current_user.sites.each do |site| %>
-            <% if site.stays.first %>
-             <% has_booking = true %>
-            <% end %>
-          <% end %>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">My travels</a></li>
+              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Manage my flats</a></li>
+              <li role="presentation"><a href="#calendar" aria-controls="profile" role="tab" data-toggle="tab">Calendar</a></li>
+            </ul>
 
-          <% if has_booking %>
-            <% current_user.sites.each do |site| %>
-              <% if site.stays.first %>
-                <h3>Requests for <strong><%= site.title %></strong></h3>
-              <% end %>
-              <% site.stays.each do |stay| %>
-                <%= render "owner_request.html.erb", stay: stay %>
-              <% end %>
-            <% end %>
-          <% else %>
-            You do not have any bookings, <i>please do something man we're hungry</i>
-          <% end %>
-        <% end %>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="fade in tab-pane active" id="home">
+                <h1>My next travels</h1>
+                <% if current_user.stays.first %>
+                <% current_user.stays.each do |stay| %>
+                <%= render "traveller_request.html.erb", stay: stay %>
+                <% end %>
+                <% else %>
+                <i>You do not have any bookings, BOOK NOW PLEASE WE ARE STARVING</i>
+                <% end %>
 
-<div id="calendar">
+                <h1>My last travels</h1>
+                <% @last_travels = current_user.stays.where("end_date < ? ", Time.now) %>
+                <% if @last_travel %>
+                <% @last_travel.each do |stay| %>
+                <%=  stay.site.title | stay.begin_date | stay.end_date | stay.status %>
+                <% end %>
+                <% else %>
+                <span >you don't have past travels</span>
+                <% end %>
 
+              </div>
+              <div role="tabpanel" class="fade tab-pane active" id="calendar">
+                <div id="calendar">
+                  <br>
+                  <%= calendar_for(@stays, :year => @date.year, :month => @date.month) do |t| %>
+                  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
+                  <%= t.day(:day_method => :begin_date) do |day, stays| %>
+                  <%= day.day %>
 
-<%= calendar_for(@stays, :year => @date.year, :month => @date.month) do |t| %>
-  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
-  <%= t.day(:day_method => :begin_date) do |day, stays| %>
-    <%= day.day %>
+                  <% stays.each do |stay| %>
+                  <ul>
+                    <li><%= h(stay.site.title) %> </li>
+                    <li><%= h(stay.status) %></li>
+                    <li><%= h(stay.user.name) %></li>
+                    <li><%= h(stay.end_date) %></li>
+                    <%= render "update_form", new_status: "accepted", stay: stay %>
+                    <%= render "update_form", new_status: "declined", stay: stay %>
 
-    <% stays.each do |stay| %>
-    <ul>
-      <li><%= h(stay.site.title) %> </li>
-      <li><%= h(stay.status) %></li>
-      <li><%= h(stay.user.name) %></li>
-      <li><%= h(stay.end_date) %></li>
-        <%= render "update_form", new_status: "accepted", stay: stay %>
-        <%= render "update_form", new_status: "declined", stay: stay %>
+                  </ul>
+                  <% end %>
 
-    </ul>
-    <% end %>
-
-  <% end %>
-<% end %>
-
-</div>
+                  <% end %>
+                  <% end %>
 
 
+                </div>
+
+
+              </div>
+              <div role="tabpanel" class="fade tab-pane" id="profile">
+
+
+                <% if current_user.sites.count == 0 %>
+                <i>You are not managing any site right now.</i>
+                <% elsif current_user.sites.count == 1 %>
+                <h1>Manage your requests</h1>
+                <i>You are managing one site.</i>
+                <% elsif current_user.sites.count > 1 %>
+                <h1>Manage your requests</h1>
+                <i>You are managing <%= current_user.sites.count %> sites.</i>
+
+
+                <div style="mini-sites">
+                  <div class="container">
+                    <div class="row">
+                      <% current_user.sites.each do |site| %>
+                      <div class="col-md-12">
+
+
+                        <div class="raw">
+                          <div class= "col-md-4">
+                            <%= link_to "Edit", edit_site_path(site), class: "btn btn-default" %>
+                            <%= render "sites/mini_show", :site => site %>
+
+                          </div>
+
+                          <div class= "col-md-8">
+
+
+                            <% site.stays.each do |stay| %>
+                            <%= render "owner_request.html.erb", stay: stay %>
+                            <% end %>
+
+
+
+                          </div>
+
+                        </div>
+
+
+
+                      </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <% end %>
+
+
+
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+          </div>
+
+
+        </div>
       </div>
     </div>
   </div>
-</div>
