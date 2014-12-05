@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
 
+  # resources :sites, only: [:new, :create, :show, :update, :edit]
   skip_before_action :authenticate_user! , only: [:index]
 
   def show
@@ -10,13 +11,14 @@ class SitesController < ApplicationController
 
   def new
     @site = Site.new
-    @categories = ['Nuclear winter', 'Abandonned sanatorium',
-  'Bunker','Abandoned factory']
   end
 
 
   def create
-    @site = Site.create(site_params)
+    @site = Site.new(site_params)
+    @site.user = current_user
+    @site.category = params[:category]
+    @site.save
     redirect_to site_path(@site)
     # we probably need to add a redirect to the /me something
   end
@@ -36,29 +38,31 @@ class SitesController < ApplicationController
   end
 
   def index
-
     @categories = ['Nuclear winter', 'Abandonned sanatorium',
-  'Bunker','Abandoned factory']
+    'Bunker','Abandoned factory']
 
     @min_price = Site.minimum(:daily_price)
     @max_price = Site.maximum(:daily_price)
 
-
     @sites = Site.all
 
-
-
-
-    if (params[:range_price] || params[:category])
+    if params[:range_price]
         price_range = params[:range_price].split("%2C")
         @min_price_result = price_range.join.split(",")[0].to_f
         @max_price_result = price_range.join.split(",")[1].to_f
-        @results = Site.where(["daily_price >= '%s' and daily_price <= '%s' and category = '%s' ", @min_price_result, @max_price_result,params[:category]])
+        @results = Site.where(["daily_price >= '%s' and daily_price <= '%s'", @min_price_result, @max_price_result])
     else
        @results = @sites
     end
 
     # @results = Site.where(category: params[:category])
+
+
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@sites) do |site, marker|
+      marker.lat site.lat
+      marker.lng site.lng
+    end
 
   end
 
@@ -67,6 +71,6 @@ class SitesController < ApplicationController
 
 
   def site_params
-     params.require(:site).permit(:daily_price, :title, :url, :picture_url, :description, :category, :available, :user, :lat, :lng, :street, :city, :country, :zip_code)
+     params.require(:site).permit(:daily_price, :title, :description, :category, :available, :user, :lat, :lng, :street, :city, :zip_code)
   end
 end

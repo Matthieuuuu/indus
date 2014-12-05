@@ -33,12 +33,17 @@
 
         <div class="container">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{site.lat},#{site.lng}&zoom=12&size=1200x400&maptype=hybrid", class: "img-responsive") %>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{site.lat},#{site.lng}&zoom=19&size=1200x400&maptype=satellite" , class: "img-responsive") %>
             </div>
+           <div class="col-md-4">
+                <%= image_tag("https://maps.googleapis.com/maps/api/streetview?location=#{site.lat},#{site.lng}&fov=90&heading=235&pitch=10&size=1200x400" , class: "img-responsive") %>
+            </div>
+
+
           </div>
         </div>
         <h3>

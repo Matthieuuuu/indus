@@ -1,27 +1,30 @@
  <div class="mini-site">
     <div class="row">
       <div class="col-md-12">
-      <h2 style="min-height:80px"> <%= link_to site.title,  site_path(site) %></h2>
+      <h2 style="min-height:110px"> <%= link_to site.title,  site_path(site) %></h2>
       <%= image_tag("#{site.picture_url}", class: "img-responsive") %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-4 text-center">
-        <i class="fa fa-money"></i> <%=  site.daily_price.round %>
+      <div class="col-md-3 text-center">
+        <i class="fa fa-money"></i> <%=  site.daily_price.round %> $
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-3 text-center">
         <i class="fa fa-tag"></i> <%=  site.category %>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-3 text-center">
         <i class="fa fa-location-arrow"></i> <%=  site.city %>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="fa fa-user"></i> <%=  site.user.name %>
       </div>
     </div>
 
 
     <div class="row">
       <div class="col-md-12">
-        <%=  site.description %>
+        <%=  site.description.first(200) %>
       </div>
     </div>
 </div>

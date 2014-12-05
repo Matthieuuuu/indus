@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'  # Add this at line 2
+
 
 ruby '2.1.2'
 gem 'rails_12factor', group: :production
@@ -15,6 +17,7 @@ gem "letter_opener", group: :development
 gem 'sass', '~> 3.2.19'
 gem 'compass', '~> 0.12.7'
 gem 'compass-rails', '~> 2.0.0'
+
 
 
 # Use Uglifier as compressor for JavaScript assets
@@ -59,6 +62,12 @@ gem "geocoder"
 gem 'country_select', github: 'stefanpenner/country_select'
 gem 'chosen-rails'
 
+gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
+
+
+
+gem "gmaps4rails"
+gem "rails-assets-underscore"
 
 
 # Use ActiveModel has_secure_password

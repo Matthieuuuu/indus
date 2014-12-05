@@ -13,8 +13,8 @@
                   <select name="category" class="form-control">
                       <option >Kind of place</option>
 
-                      <% @categories.each do |category| %>
-                        <option value="<%= category %>"/><%= category %></option>
+                      <% Site::CATEGORIES.each do |category| %>
+                        <option name = "category" value="<%= category %>"/><%= category %></option>
                       <% end %>
                   </select>
 
@@ -45,8 +45,28 @@
     </div>
 
 
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>
+
 
 
 
     </div>
+
+
+
+
+
   </div>

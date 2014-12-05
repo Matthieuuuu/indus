@@ -1,5 +1,5 @@
 From <%= stay.begin_date %> to <%= stay.end_date %><br>
-<strong>Contact:</strong> <%= stay.site.user.email %><br><br>
+<strong>Contact:</strong> <%= stay.user.email %><br><br>
 <% if ["accepted", "declined"].include? stay.status %>
   <i>You <%= stay.status %> this request on <%= stay.response_at.to_date %>.</i><br>
 <% end %>
@@ -18,7 +18,7 @@ From <%= stay.begin_date %> to <%= stay.end_date %><br>
     </div>
   </div>
 
-<% else %>
+<% elsif stay.status == "cancelled" %>
 
   <i>This booking was cancelled by the traveller on <%= stay.response_at.to_date %></i><br>
 
