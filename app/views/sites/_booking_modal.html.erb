@@ -15,13 +15,14 @@
                 <%= f.hidden_field :site_id, value: site.id %>
                 <div class="input-daterange input-group" id="datepicker" style="z-index: 1000000; padding: 50px;">
                   <span class="input-group-addon">from</span>
-                  <input data-provide="datepicker" type="text" class="input-sm form-control" name="begin_date" placeholder="from" />
+                  <input data-provide="datepicker" type="text" class="input-sm form-control" name="begin_date" placeholder="from" id="begin_date" />
                   <span class="input-group-addon">to</span>
                   <input data-provide="datepicker" type="text" class="input-sm form-control" name="end_date" id="end_date" placeholder="to"/>
                 </div>
                 <%= f.submit 'Request your cancer', class: 'btn btn-danger' %>
                 <% end %>
             </div>
+            <div id="msg" style="display: none;"><i>Not available, go fuck yourself</i></div>
           </div>
         </div>
       </div>
@@ -29,30 +30,57 @@
   </div>
 </div>
 
-<script>
 
-$('.input-daterange').datepicker({
-    // format: "dd/mm/yyyy",
-    // startDate: 0,
-    // todayBtn: true,
-    // todayHighlight: true,
-    // autoclose: true
-});
 
-// $('#datepicker').datepicker({
-//   dateFormat: "dd/mm/yyyy",
-//   startDate: "+1d",
-//   todayHighlight: true,
-//   todayBtn: true,
-//   autoclose: true
-// });
+<% content_for(:bookingmodaljs) do %>
 
-// $('.input-daterange').datepicker().on('changeDate', function(e){
-//   console.log('fuck you')
-//   $('.input-daterange').datepicker({
-//     startDate: "+4d",
-//     todayBtn: false
-//   });
-// });
+  <%= javascript_tag do %>
 
-</script>
+    <% days = [] %>
+
+    <% site.taken_flat_days.each do |day| %>
+        <% days << day.occupied_date %>
+    <% end %>
+
+    $('.input-daterange').datepicker({
+      format: "dd/mm/yyyy",
+      startDate: 0,
+      todayBtn: true,
+      todayHighlight: true,
+      autoclose: true
+    });
+
+    $(document).click(function(){
+      var beginDate = $('#begin_date').val();
+      var date_array = beginDate.split("/");
+      beginDate = new Date(date_array[2].concat("-").concat(date_array[1]).concat("-").concat(date_array[0]));
+      var endDate = $('#end_date').val();
+      date_array = endDate.split("/");
+      endDate = new Date(date_array[2].concat("-").concat(date_array[1]).concat("-").concat(date_array[0]));
+      var available = true;
+      for (var d = beginDate; d < endDate; d.setDate(d.getDate() + 1)) {
+          console.log('checking availability for :');
+          console.log(d);
+          console.log('   ');
+        <% days.each do |day| %>
+          console.log(new Date ('<%= day %>'));
+          if(Date.parse(d) === Date.parse(new Date ('<%= day %>'))){
+            available = false;
+            console.log('gogogo');
+        }
+        <% end %>
+        console.log(available);
+      }
+      if(available){
+      $('.btn').removeClass('disabled');
+      $('#msg').hide();
+      }
+      if(!available){
+      $('.btn').addClass('disabled');
+      $('#msg').show();
+      }
+    });
+
+  <% end %>
+<% end %>
+
