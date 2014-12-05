@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Your bookings</h1>
+        <h1>Your next travels</h1>
         <% if current_user.stays.first %>
           <% current_user.stays.each do |stay| %>
             <%= render "traveller_request.html.erb", stay: stay %>
